@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs - TechSouth</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8fafc;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #1a365d;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .logo-box {
+            border: 2px solid #f6ad55;
+            padding: 0.75rem 1.5rem;
+            background: #1a365d;
+            border-radius: 0.25rem;
+        }
+
+        .logo-text {
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            transition: background 0.3s;
+        }
+
+        .nav-link:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .nav-link.active {
+            background: #f6ad55;
+            color: #1a365d;
+        }
+
+        .join-btn {
+            background: #3182ce;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .join-btn:hover {
+            background: #2c5aa0;
+        }
+
+        /* Header Section */
+        .header-section {
+            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+            padding: 8rem 2rem 4rem;
+            color: white;
+            text-align: center;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .header-section p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Blog Controls */
+        .blog-controls {
+            background: white;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .controls-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .blog-status {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .status-indicator {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .status-indicator.loading {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+
+        .status-indicator.dynamic {
+            background: #48bb78;
+            color: white;
+        }
+
+        .status-indicator.fallback {
+            background: #ed8936;
+            color: white;
+        }
+
+        .search-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .search-box {
+            padding: 0.5rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            width: 200px;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        /* Loading State */
+        .loading-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f4f6;
+            border-top: 4px solid #1a365d;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid #e5e7eb;
+        }
+
+        .blog-card:hover {
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .blog-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .blog-category {
+            background: #1a365d;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.25rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .blog-date {
+            color: #6b7280;
+        }
+
+        .blog-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1a365d;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .blog-excerpt {
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .blog-footer {
+            padding: 1rem 1.5rem;
+            background: #f9fafb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .blog-country {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .blog-stats {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .read-more-btn {
+            background: #f6ad55;
+            color: #1a365d;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+            font-size: 0.875rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .read-more-btn:hover {
+            background: #ed8936;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .pagination button {
+            padding: 0.5rem 1rem;
+            border: 1px solid #d1d5db;
+            background: white;
+            color: #374151;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .pagination button:hover {
+            background: #f3f4f6;
+        }
+
+        .pagination button.active {
+            background: #1a365d;
+            color: white;
+            border-color: #1a365d;
+        }
+
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Blog Modal */
+        .blog-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            overflow-y: auto;
+        }
+
+        .blog-modal-content {
+            background-color: white;
+            margin: 2rem auto;
+            padding: 0;
+            border-radius: 0.75rem;
+            width: 90%;
+            max-width: 900px;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        }
+
+        .modal-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid #e5e7eb;
+            position: relative;
+        }
+
+        .blog-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: #6b7280;
+            transition: color 0.3s;
+        }
+
+        .blog-modal-close:hover {
+            color: #1a365d;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1a365d;
+            margin-bottom: 1rem;
+            padding-right: 3rem;
+            line-height: 1.3;
+        }
+
+        .modal-meta {
+            display: flex;
+            gap: 2rem;
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-body {
+            padding: 2rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .modal-body h2 {
+            color: #1a365d;
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .modal-body h3 {
+            color: #2d3748;
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .modal-body p {
+            margin-bottom: 1.5rem;
+            color: #374151;
+        }
+
+        .modal-body ul, .modal-body ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .modal-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-body blockquote {
+            border-left: 4px solid #f6ad55;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #4b5563;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-actions {
+                display: none;
+            }
+
+            .header-section h1 {
+                font-size: 2rem;
+            }
+
+            .controls-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .blog-status {
+                justify-content: center;
+            }
+
+            .search-controls {
+                justify-content: center;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-body {
+                padding: 1.5rem;
+                font-size: 1rem;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <button class="menu-btn">☰</button>
+            </div>
+            
+            <div class="logo">
+                <div class="logo-box">
+                    <div class="logo-text">
+                        TECH<br>SOUTH
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/blogs" class="nav-link active">Blogs</a>
+                <a href="/#focus" class="nav-link">Focus Areas</a>
+                <a href="/#partnerships" class="nav-link">Partnerships</a>
+                <a href="/#newsletter" class="nav-link">Newsletter</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="header-section">
+        <div class="header-container">
+            <h1>TechSouth Blogs</h1>
+            <p>In-depth analysis and insights on how technology is transforming the Global South, powered by AI research and expert analysis.</p>
+        </div>
+    </section>
+
+    <!-- Blog Controls -->
+    <section class="blog-controls">
+        <div class="controls-container">
+            <div class="blog-status">
+                <div class="status-indicator loading" id="status-indicator">
+                    Loading blog posts...
+                </div>
+                <div id="post-count"></div>
+            </div>
+            
+            <div class="search-controls">
+                <input type="text" class="search-box" placeholder="Search blogs..." id="search-input">
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Loading State -->
+        <div id="loading-container" class="loading-container">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Blog Grid -->
+        <div id="blog-grid" class="blog-grid" style="display: none;">
+            <!-- Blog posts will be loaded here -->
+        </div>
+
+        <!-- Pagination -->
+        <div id="pagination" class="pagination" style="display: none;">
+            <button id="prev-btn" onclick="changePage(-1)">← Previous</button>
+            <div id="page-numbers"></div>
+            <button id="next-btn" onclick="changePage(1)">Next →</button>
+        </div>
+    </main>
+
+    <!-- Blog Modal -->
+    <div id="blog-modal" class="blog-modal">
+        <div class="blog-modal-content">
+            <div class="modal-header">
+                <span class="blog-modal-close">&times;</span>
+                <h2 class="modal-title" id="modal-title"></h2>
+                <div class="modal-meta" id="modal-meta"></div>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let allPosts = [];
+        let filteredPosts = [];
+        let currentPage = 1;
+        let postsPerPage = 6;
+        let totalPages = 1;
+        let isUsingDynamicContent = false;
+
+        // Fallback blog posts (from Latest Stories)
+        const fallbackPosts = [
+            {
+                id: 1,
+                title: "Kenya's M-Pesa: 15 Years of Financial Revolution",
+                excerpt: "Kenya's mobile money platform continues to dominate, processing 20 billion transactions in 2023 alone and serving as a global model for financial inclusion.",
+                content: `
+                    <p>Kenya's M-Pesa has revolutionized financial services across Africa and beyond. Launched in 2007, this mobile money platform has processed over 20 billion transactions in 2023 alone, demonstrating the power of leapfrog technology in emerging markets.</p>
+                    
+                    <p>The platform's success stems from its simplicity and accessibility. Users can send money, pay bills, and access financial services using basic mobile phones, without requiring traditional banking infrastructure. This has been particularly transformative in rural areas where bank branches are scarce.</p>
+                    
+                    <p>M-Pesa's impact extends beyond individual transactions. It has enabled the growth of digital commerce, facilitated government payments, and provided a foundation for other fintech innovations. The platform now serves over 50 million users across multiple African countries.</p>
+                    
+                    <p>The success of M-Pesa has inspired similar platforms worldwide and demonstrated how emerging markets can lead in financial innovation. It remains a cornerstone example of how technology can drive financial inclusion and economic empowerment in the Global South.</p>
+                `,
+                category: "Fintech",
+                country: "Kenya",
+                flag: "🇰🇪",
+                published_at: "2024-08-15",
+                view_count: 2450
+            },
+            {
+                id: 2,
+                title: "India's Aadhaar: Digital Identity at Unprecedented Scale",
+                excerpt: "India's biometric identity system has revolutionized government service delivery and enabled millions to access banking and social services for the first time.",
+                content: `
+                    <p>India's Aadhaar system represents the world's largest biometric identity program, covering over 1.3 billion residents. This digital identity infrastructure has fundamentally transformed how citizens access government services and financial products.</p>
+                    
+                    <p>The system uses biometric data (fingerprints and iris scans) along with demographic information to create unique digital identities. This has eliminated duplicate identities and reduced fraud in government programs, saving billions of dollars annually.</p>
+                    
+                    <p>Aadhaar has enabled financial inclusion on an unprecedented scale. Millions of previously unbanked citizens can now open bank accounts instantly using their Aadhaar number. This has facilitated direct benefit transfers, reducing corruption and ensuring subsidies reach intended beneficiaries.</p>
+                    
+                    <p>The platform has also spurred innovation in the fintech sector, enabling instant KYC (Know Your Customer) processes and digital onboarding. Despite privacy concerns, Aadhaar remains a powerful example of how digital identity can transform governance and financial inclusion.</p>
+                `,
+                category: "Digital ID",
+                country: "India",
+                flag: "🇮🇳",
+                published_at: "2024-08-14",
+                view_count: 1890
+            },
+            {
+                id: 3,
+                title: "Brazil's PIX Revolution: Instant Payment Transformation",
+                excerpt: "Brazil's instant payment system PIX has transformed the financial landscape, enabling real-time transfers and driving fintech innovation across Latin America.",
+                content: `
+                    <p>Brazil's PIX instant payment system has revolutionized the country's financial landscape since its launch in 2020. This central bank-operated platform enables instant, 24/7 money transfers between any bank accounts, fundamentally changing how Brazilians handle money.</p>
+                    
+                    <p>PIX's adoption has been remarkable, with over 140 million users conducting billions of transactions monthly. The system's success lies in its simplicity - users can transfer money using just a phone number, email, or QR code, eliminating the need for complex bank details.</p>
+                    
+                    <p>The platform has significantly reduced the cost of financial transactions and increased financial inclusion. Small businesses, in particular, have benefited from lower transaction fees compared to traditional payment methods, enabling them to participate more fully in the digital economy.</p>
+                    
+                    <p>PIX has also spurred innovation across Latin America, with other countries developing similar instant payment systems. It demonstrates how government-led digital infrastructure can drive financial innovation and inclusion while maintaining security and reliability.</p>
+                `,
+                category: "Payments",
+                country: "Brazil",
+                flag: "🇧🇷",
+                published_at: "2024-08-13",
+                view_count: 1567
+            },
+            {
+                id: 4,
+                title: "Africa's AI Innovation Surge",
+                excerpt: "African countries are harnessing AI to address healthcare, agriculture, and governance challenges, positioning the continent as an emerging AI innovation hub.",
+                content: `
+                    <p>Africa is experiencing a remarkable surge in artificial intelligence innovation, with startups and researchers across the continent developing AI solutions tailored to local challenges. This growth is positioning Africa as an emerging global hub for AI innovation.</p>
+                    
+                    <p>In healthcare, AI applications are addressing critical challenges such as disease diagnosis and treatment optimization. Companies like Zipline use AI-powered drones to deliver medical supplies to remote areas, while startups develop AI diagnostic tools for diseases prevalent in African contexts.</p>
+                    
+                    <p>Agriculture, which employs a significant portion of Africa's population, is being transformed through AI applications. Farmers are using AI-powered platforms to optimize crop yields, predict weather patterns, and access market information, improving food security and livelihoods.</p>
+                    
+                    <p>Government services are also benefiting from AI innovation. Countries are implementing AI-powered systems for citizen services, fraud detection, and resource allocation. This technological advancement is helping African nations leapfrog traditional development stages and build more efficient, responsive governance systems.</p>
+                `,
+                category: "AI",
+                country: "Africa",
+                flag: "🌍",
+                published_at: "2024-08-12",
+                view_count: 2100
+            },
+            {
+                id: 5,
+                title: "Rwanda's Digital Health Revolution",
+                excerpt: "Rwanda's comprehensive digital health platform uses AI and data analytics to improve patient outcomes and healthcare accessibility across the country.",
+                content: `
+                    <p>Rwanda has emerged as a leader in digital health innovation, implementing comprehensive digital health systems that serve as a model for other developing nations. The country's approach combines technology with strong governance to improve healthcare outcomes.</p>
+                    
+                    <p>The national health information system integrates data from all healthcare facilities, enabling real-time monitoring of health indicators and resource allocation. This system has been crucial in managing public health challenges and ensuring efficient healthcare delivery.</p>
+                    
+                    <p>AI and machine learning are being deployed to predict disease outbreaks, optimize treatment protocols, and improve diagnostic accuracy. These technologies are particularly valuable in a country where healthcare resources must be used efficiently to serve the entire population.</p>
+                    
+                    <p>Rwanda's digital health initiatives extend beyond technology to include comprehensive training programs for healthcare workers and strong data governance frameworks. This holistic approach has resulted in significant improvements in health outcomes and positions Rwanda as a leader in digital health innovation in Africa.</p>
+                `,
+                category: "HealthTech",
+                country: "Rwanda",
+                flag: "🇷🇼",
+                published_at: "2024-08-11",
+                view_count: 1234
+            },
+            {
+                id: 6,
+                title: "Nigeria's Fintech Boom: Leapfrogging Traditional Banking",
+                excerpt: "Nigeria's fintech sector is revolutionizing financial services, with digital banks and payment platforms serving millions of previously unbanked citizens.",
+                content: `
+                    <p>Nigeria's fintech sector has experienced explosive growth, with the country now home to some of Africa's most valuable fintech companies. This boom is transforming financial services and driving financial inclusion across West Africa's largest economy.</p>
+                    
+                    <p>Digital banks like Kuda and Opay are providing banking services to millions of previously unbanked Nigerians. These platforms offer features like instant account opening, low-cost transfers, and savings products, all accessible through mobile phones.</p>
+                    
+                    <p>Payment platforms such as Paystack and Flutterwave have enabled thousands of businesses to accept digital payments, driving e-commerce growth and formalization of the economy. These platforms process billions of dollars in transactions annually.</p>
+                    
+                    <p>The success of Nigerian fintech companies extends beyond national borders, with many expanding across Africa and globally. This growth demonstrates how emerging markets can become leaders in financial innovation, creating solutions that serve both local and international markets.</p>
+                `,
+                category: "Fintech",
+                country: "Nigeria",
+                flag: "🇳🇬",
+                published_at: "2024-08-10",
+                view_count: 1876
+            }
+        ];
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadBlogPosts();
+            setupEventListeners();
+        });
+
+        // Load blog posts from API or use fallback
+        async function loadBlogPosts() {
+            try {
+                showLoading(true);
+                
+                const response = await fetch('/api/blog/posts?per_page=50');
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    if (data.posts && data.posts.length > 0) {
+                        allPosts = data.posts;
+                        isUsingDynamicContent = true;
+                        updateStatus('dynamic', `${data.posts.length} AI-generated posts loaded`);
+                    } else {
+                        allPosts = fallbackPosts;
+                        isUsingDynamicContent = false;
+                        updateStatus('fallback', 'Showing curated content (automated posts coming soon)');
+                    }
+                } else {
+                    throw new Error('API response not ok');
+                }
+            } catch (error) {
+                console.log('Using fallback content:', error);
+                allPosts = fallbackPosts;
+                isUsingDynamicContent = false;
+                updateStatus('fallback', 'Showing curated content');
+            }
+            
+            filteredPosts = [...allPosts];
+            renderBlogPosts();
+            setupPagination();
+            showLoading(false);
+        }
+
+        // Update status indicator
+        function updateStatus(type, message) {
+            const indicator = document.getElementById('status-indicator');
+            indicator.textContent = message;
+            indicator.className = `status-indicator ${type}`;
+            
+            document.getElementById('post-count').textContent = `${allPosts.length} articles available`;
+        }
+
+        // Show/hide loading state
+        function showLoading(show) {
+            document.getElementById('loading-container').style.display = show ? 'flex' : 'none';
+            document.getElementById('blog-grid').style.display = show ? 'none' : 'grid';
+        }
+
+        // Render blog posts
+        function renderBlogPosts() {
+            const grid = document.getElementById('blog-grid');
+            grid.innerHTML = '';
+            
+            const startIndex = (currentPage - 1) * postsPerPage;
+            const endIndex = startIndex + postsPerPage;
+            const postsToShow = filteredPosts.slice(startIndex, endIndex);
+            
+            postsToShow.forEach(post => {
+                const blogCard = createBlogCard(post);
+                grid.appendChild(blogCard);
+            });
+            
+            document.getElementById('blog-grid').style.display = 'grid';
+        }
+
+        // Create blog card element
+        function createBlogCard(post) {
+            const card = document.createElement('div');
+            card.className = 'blog-card';
+            
+            // Format date
+            const date = new Date(post.published_at || post.created_at).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            // Get post details
+            const category = post.technology?.name || post.category || 'Technology';
+            const country = post.country?.name || post.country || 'Global South';
+            const flag = post.country?.flag_url || post.flag || getCountryFlag(country);
+            const excerpt = post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').substring(0, 200) + '...' : 'Click to read the full article...');
+            const wordCount = post.content ? Math.round(post.content.replace(/<[^>]*>/g, '').split(' ').length) : 0;
+            
+            card.innerHTML = `
+                <div class="blog-header">
+                    <div class="blog-meta">
+                        <span class="blog-category">${category}</span>
+                        <span class="blog-date">${date}</span>
+                    </div>
+                    <h3 class="blog-title">${post.title}</h3>
+                    <p class="blog-excerpt">${excerpt}</p>
+                </div>
+                <div class="blog-footer">
+                    <div class="blog-country">
+                        <span>${flag}</span>
+                        <span>${country}</span>
+                    </div>
+                    <div class="blog-stats">
+                        <span>${wordCount} words</span>
+                        <span>${post.view_count || 0} views</span>
+                    </div>
+                    <button class="read-more-btn" onclick="openBlogModal(${post.id})">Read Full Article</button>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Get country flag emoji
+        function getCountryFlag(country) {
+            const flags = {
+                'Kenya': '🇰🇪',
+                'Nigeria': '🇳🇬',
+                'South Africa': '🇿🇦',
+                'Ghana': '🇬🇭',
+                'Rwanda': '🇷🇼',
+                'India': '🇮🇳',
+                'Bangladesh': '🇧🇩',
+                'Pakistan': '🇵🇰',
+                'Indonesia': '🇮🇩',
+                'Philippines': '🇵🇭',
+                'Brazil': '🇧🇷',
+                'Mexico': '🇲🇽',
+                'Colombia': '🇨🇴',
+                'Argentina': '🇦🇷',
+                'Chile': '🇨🇱',
+                'Africa': '🌍'
+            };
+            return flags[country] || '🌍';
+        }
+
+        // Open blog modal
+        function openBlogModal(postId) {
+            const post = allPosts.find(p => p.id === postId);
+            if (!post) return;
+            
+            const modal = document.getElementById('blog-modal');
+            const title = document.getElementById('modal-title');
+            const meta = document.getElementById('modal-meta');
+            const body = document.getElementById('modal-body');
+            
+            title.textContent = post.title;
+            
+            const date = new Date(post.published_at || post.created_at).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            const category = post.technology?.name || post.category || 'Technology';
+            const country = post.country?.name || post.country || 'Global South';
+            const flag = post.country?.flag_url || post.flag || getCountryFlag(country);
+            const wordCount = post.content ? Math.round(post.content.replace(/<[^>]*>/g, '').split(' ').length) : 0;
+            
+            meta.innerHTML = `
+                <span><strong>${category}</strong></span>
+                <span>${flag} ${country}</span>
+                <span>${date}</span>
+                <span>${wordCount} words</span>
+                <span>${post.view_count || 0} views</span>
+            `;
+            
+            body.innerHTML = post.content || 'Content not available.';
+            modal.style.display = 'block';
+        }
+
+        // Setup pagination
+        function setupPagination() {
+            totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+            
+            if (totalPages <= 1) {
+                document.getElementById('pagination').style.display = 'none';
+                return;
+            }
+            
+            document.getElementById('pagination').style.display = 'flex';
+            updatePaginationButtons();
+        }
+
+        // Update pagination buttons
+        function updatePaginationButtons() {
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const pageNumbers = document.getElementById('page-numbers');
+            
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+            
+            // Generate page numbers
+            let pagesHTML = '';
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === currentPage) {
+                    pagesHTML += `<button class="active">${i}</button>`;
+                } else {
+                    pagesHTML += `<button onclick="goToPage(${i})">${i}</button>`;
+                }
+            }
+            pageNumbers.innerHTML = pagesHTML;
+        }
+
+        // Change page
+        function changePage(direction) {
+            const newPage = currentPage + direction;
+            if (newPage >= 1 && newPage <= totalPages) {
+                currentPage = newPage;
+                renderBlogPosts();
+                updatePaginationButtons();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Go to specific page
+        function goToPage(page) {
+            currentPage = page;
+            renderBlogPosts();
+            updatePaginationButtons();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Search functionality
+        function searchPosts(query) {
+            if (!query.trim()) {
+                filteredPosts = [...allPosts];
+            } else {
+                const searchTerm = query.toLowerCase();
+                filteredPosts = allPosts.filter(post => 
+                    post.title.toLowerCase().includes(searchTerm) ||
+                    (post.content && post.content.toLowerCase().includes(searchTerm)) ||
+                    (post.country && post.country.toLowerCase().includes(searchTerm)) ||
+                    (post.category && post.category.toLowerCase().includes(searchTerm))
+                );
+            }
+            
+            currentPage = 1;
+            setupPagination();
+            renderBlogPosts();
+            
+            // Update post count
+            document.getElementById('post-count').textContent = 
+                `Showing ${filteredPosts.length} of ${allPosts.length} articles`;
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Close modal
+            document.querySelector('.blog-modal-close').onclick = function() {
+                document.getElementById('blog-modal').style.display = 'none';
+            };
+            
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                const modal = document.getElementById('blog-modal');
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            };
+            
+            // Search input
+            const searchInput = document.getElementById('search-input');
+            let searchTimeout;
+            searchInput.addEventListener('input', function(e) {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    searchPosts(e.target.value);
+                }, 300);
+            });
+        }
+    </script>
+</body>
+</html>
+
