@@ -23,7 +23,7 @@ class MediaGenerator:
     """Generates visual media assets for blog posts"""
     
     def __init__(self):
-        self.media_dir = "/tmp/media"
+        self.media_dir = os.path.join(os.path.dirname(__file__), "..", "static", "media")
         self.ensure_media_directories()
     
     def ensure_media_directories(self):
