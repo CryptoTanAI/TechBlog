@@ -23,7 +23,7 @@ class MediaGenerator:
     """Generates visual media assets for blog posts"""
     
     def __init__(self):
-        self.media_dir = "/home/ubuntu/tech_blog_backend/src/static/media"
+        self.media_dir = "/tmp/media"
         self.ensure_media_directories()
     
     def ensure_media_directories(self):
