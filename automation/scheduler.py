@@ -17,11 +17,11 @@ import logging
 # Add the parent directory to the path to import models
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-from src.models.blog import BlogPost, Country, Technology, MediaAsset, AutomationConfig, SocialShare
-from src.models.user import db
-from src.automation.content_generator import ContentGenerator
-from src.automation.media_generator import MediaGenerator
-from src.automation.social_publisher import SocialPublisher
+from models.blog import BlogPost, Country, Technology, MediaAsset, AutomationConfig, SocialShare
+from models.user import db
+from automation.content_generator import ContentGenerator
+from automation.media_generator import MediaGenerator
+from automation.social_publisher import SocialPublisher
 
 # Set up logging
 logging.basicConfig(
