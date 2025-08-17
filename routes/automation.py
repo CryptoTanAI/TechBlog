@@ -13,11 +13,11 @@ import json
 # Add the parent directory to the path to import models
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-from src.models.blog import BlogPost, Country, Technology, AutomationConfig, SocialShare
-from src.models.user import db
-from src.automation.scheduler import get_scheduler
-from src.automation.content_generator import ContentGenerator
-from src.automation.social_publisher import SocialPublisher
+from models.blog import BlogPost, Country, Technology, AutomationConfig, SocialShare
+from models.user import db
+from automation.scheduler import get_scheduler
+from automation.content_generator import ContentGenerator
+from automation.social_publisher import SocialPublisher
 
 automation_bp = Blueprint('automation', __name__)
 
