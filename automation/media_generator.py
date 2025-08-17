@@ -15,7 +15,7 @@ import logging
 # Add the parent directory to the path to import models
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-from src.models.blog import BlogPost, Country, Technology
+from models.blog import BlogPost, Country, Technology
 
 logger = logging.getLogger(__name__)
 
