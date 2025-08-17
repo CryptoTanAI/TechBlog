@@ -10,6 +10,8 @@ from models.blog import BlogPost, Country, Technology, MediaAsset, SocialShare, 
 from routes.user import user_bp
 from routes.blog import blog_bp
 from routes.automation import automation_bp
+from routes.newsletter import newsletter_bp
+
 
 app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), 'static'))
 app.config['SECRET_KEY'] = 'asdf#FGSgvasgf$5$WGT'
@@ -20,6 +22,8 @@ CORS(app, origins="*")
 app.register_blueprint(user_bp, url_prefix='/api')
 app.register_blueprint(blog_bp, url_prefix='/api')
 app.register_blueprint(automation_bp, url_prefix='/api')
+app.register_blueprint(newsletter_bp, url_prefix='/api/newsletter')
+
 
 # Database configuration
 database_url = os.environ.get('DATABASE_URL')
