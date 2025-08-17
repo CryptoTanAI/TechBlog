@@ -2,8 +2,8 @@ from flask import Blueprint, jsonify, request
 from datetime import datetime
 import json
 from sqlalchemy import desc, func
-from src.models.user import db
-from src.models.blog import BlogPost, Country, Technology, MediaAsset, SocialShare, AutomationConfig
+from models.user import db
+from models.blog import BlogPost, Country, Technology, MediaAsset, SocialShare, AutomationConfig
 
 blog_bp = Blueprint('blog', __name__)
 
