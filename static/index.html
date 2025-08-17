@@ -300,47 +300,6 @@
             margin: 0 auto;
         }
 
-        .blog-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .blog-status {
-            background: #e2e8f0;
-            color: #4a5568;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .blog-status.dynamic {
-            background: #48bb78;
-            color: white;
-        }
-
-        .blog-status.static {
-            background: #ed8936;
-            color: white;
-        }
-
-        .admin-link {
-            background: #3182ce;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: background 0.3s;
-        }
-
-        .admin-link:hover {
-            background: #2c5aa0;
-        }
-
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -552,12 +511,6 @@
             .stats-container {
                 grid-template-columns: repeat(2, 1fr);
             }
-
-            .blog-header {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: flex-start;
-            }
         }
 
         /* Loading Animation */
@@ -654,26 +607,6 @@
             margin-bottom: 1rem;
             line-height: 1.6;
         }
-
-        .empty-state {
-            text-align: center;
-            padding: 4rem 2rem;
-            color: #4a5568;
-        }
-
-        .empty-state h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #1a365d;
-        }
-
-        .empty-state p {
-            margin-bottom: 2rem;
-        }
-
-        .empty-state .admin-link {
-            display: inline-block;
-        }
     </style>
 </head>
 <body>
@@ -718,8 +651,8 @@
             </div>
             <div class="hero-video">
                 <iframe 
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                    title="TechSouth Research Overview"
+                    src="https://www.youtube.com/embed/r79gxxQJNrc" 
+                    title="Technology in the Global South"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen>
                 </iframe>
@@ -731,19 +664,19 @@
     <section class="stats-section">
         <div class="stats-container">
             <div class="stat-item">
-                <h3 id="countries-stat">50+</h3>
+                <h3>50+</h3>
                 <p>Countries Analyzed</p>
             </div>
             <div class="stat-item">
-                <h3 id="reports-stat">200+</h3>
+                <h3>200+</h3>
                 <p>Research Reports</p>
             </div>
             <div class="stat-item">
-                <h3 id="impact-stat">1M+</h3>
+                <h3>1M+</h3>
                 <p>Lives Impacted</p>
             </div>
             <div class="stat-item">
-                <h3 id="sectors-stat">15+</h3>
+                <h3>15+</h3>
                 <p>Technology Sectors</p>
             </div>
         </div>
@@ -758,26 +691,26 @@
                     Four key pillars driving technological transformation across the Global South
                 </p>
             </div>
-            
+
             <div class="focus-grid">
                 <div class="focus-card">
                     <div class="focus-icon">📈</div>
                     <h3>Economic Empowerment</h3>
                     <p>How emerging technologies create new economic opportunities, drive GDP growth, and enable entrepreneurship in developing nations.</p>
                 </div>
-                
+
                 <div class="focus-card">
                     <div class="focus-icon">🤝</div>
                     <h3>Social Innovation</h3>
                     <p>Technology solutions that address poverty, improve education, enhance healthcare, and create more inclusive societies.</p>
                 </div>
-                
+
                 <div class="focus-card">
                     <div class="focus-icon">🏛️</div>
                     <h3>Governance Transformation</h3>
                     <p>Digital government initiatives, e-governance platforms, and technology-enabled public service delivery.</p>
                 </div>
-                
+
                 <div class="focus-card">
                     <div class="focus-icon">🚀</div>
                     <h3>Infrastructure Leapfrogging</h3>
@@ -796,50 +729,129 @@
                     Daily insights into how technology is transforming the Global South
                 </p>
             </div>
-            
-            <div class="blog-header">
-                <div class="blog-status" id="blog-status">Loading blog posts...</div>
-                <a href="/api/automation/generate" class="admin-link" target="_blank">Generate New Posts</a>
-            </div>
-            
-            <div id="blog-loading" class="loading">
-                <div class="spinner"></div>
-            </div>
-            
-            <div id="blog-grid" class="blog-grid" style="display: none;">
-                <!-- Dynamic blog posts will be loaded here -->
-            </div>
-            
-            <div id="blog-empty" class="empty-state" style="display: none;">
-                <h3>No Blog Posts Yet</h3>
-                <p>Your automated blog system is ready, but no posts have been generated yet.</p>
-                <a href="/api/automation/generate" class="admin-link" target="_blank">Generate First Posts</a>
+
+            <div class="blog-grid">
+                <div class="blog-card" onclick="openBlogPost('mpesa')">
+                    <div class="blog-image">
+                        <div class="blog-category">Fintech</div>
+                        <div class="blog-flag">🇰🇪</div>
+                        💳
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Kenya's M-Pesa: 15 Years of Financial Revolution</h3>
+                        <p class="blog-excerpt">Kenya's mobile money platform continues to dominate, processing 20 billion transactions in 2023 alone and serving as a global model for financial inclusion.</p>
+                        <div class="blog-meta">
+                            <span>8/15/2024</span>
+                            <span>2,450 views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-card" onclick="openBlogPost('aadhaar')">
+                    <div class="blog-image">
+                        <div class="blog-category">Digital ID</div>
+                        <div class="blog-flag">🇮🇳</div>
+                        🆔
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">India's Aadhaar: Digital Identity at Unprecedented Scale</h3>
+                        <p class="blog-excerpt">India's biometric identity system has revolutionized government service delivery and enabled millions to access banking and social services for the first time.</p>
+                        <div class="blog-meta">
+                            <span>8/14/2024</span>
+                            <span>1,890 views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-card" onclick="openBlogPost('pix')">
+                    <div class="blog-image">
+                        <div class="blog-category">Payments</div>
+                        <div class="blog-flag">🇧🇷</div>
+                        💰
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Brazil's PIX Revolution: Instant Payment Transformation</h3>
+                        <p class="blog-excerpt">Brazil's instant payment system PIX has transformed the financial landscape, enabling real-time transfers and driving fintech innovation across Latin America.</p>
+                        <div class="blog-meta">
+                            <span>8/13/2024</span>
+                            <span>1,567 views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-card" onclick="openBlogPost('africa-ai')">
+                    <div class="blog-image">
+                        <div class="blog-category">AI</div>
+                        <div class="blog-flag">🌍</div>
+                        🤖
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Africa's AI Innovation Surge</h3>
+                        <p class="blog-excerpt">African countries are harnessing AI to address healthcare, agriculture, and governance challenges, positioning the continent as an emerging AI innovation hub.</p>
+                        <div class="blog-meta">
+                            <span>8/12/2024</span>
+                            <span>2,100 views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-card" onclick="openBlogPost('rwanda-health')">
+                    <div class="blog-image">
+                        <div class="blog-category">HealthTech</div>
+                        <div class="blog-flag">🇷🇼</div>
+                        🏥
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Rwanda's Digital Health Revolution</h3>
+                        <p class="blog-excerpt">Rwanda's comprehensive digital health platform uses AI and data analytics to improve patient outcomes and healthcare accessibility across the country.</p>
+                        <div class="blog-meta">
+                            <span>8/11/2024</span>
+                            <span>1,234 views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-card" onclick="openBlogPost('nigeria-fintech')">
+                    <div class="blog-image">
+                        <div class="blog-category">Fintech</div>
+                        <div class="blog-flag">🇳🇬</div>
+                        🏦
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Nigeria's Fintech Boom: Leapfrogging Traditional Banking</h3>
+                        <p class="blog-excerpt">Nigeria's fintech sector is revolutionizing financial services, with digital banks and payment platforms serving millions of previously unbanked citizens.</p>
+                        <div class="blog-meta">
+                            <span>8/10/2024</span>
+                            <span>1,876 views</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Newsletter Section -->
-    <section id="newsletter" class="newsletter-section">
+    <section class="newsletter-section" id="newsletter">
         <div class="newsletter-container">
             <h2>TechSouth Weekly</h2>
             <p>Get curated insights and analysis on technologies transforming the Global South, delivered to your inbox every week.</p>
             
-            <form class="newsletter-form" id="newsletter-form">
+            <form class="newsletter-form" id="newsletterForm">
                 <input 
                     type="email" 
                     class="newsletter-input" 
-                    placeholder="Enter your email"
+                    id="emailInput"
+                    placeholder="Enter your email address" 
                     required
-                    id="newsletter-email"
                 >
                 <button type="submit" class="newsletter-btn">Subscribe</button>
             </form>
             
-            <div class="success-message" id="newsletter-success">
+            <div id="successMessage" class="success-message">
                 Thank you for subscribing! You'll receive our weekly insights soon.
             </div>
             
-            <div class="error-message" id="newsletter-error">
+            <div id="errorMessage" class="error-message">
                 Something went wrong. Please try again.
             </div>
         </div>
@@ -850,26 +862,26 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Research</h3>
-                <a href="#countries">Country Analysis</a>
-                <a href="#technologies">Technology Reports</a>
-                <a href="#impact">Impact Studies</a>
-                <a href="#trends">Trend Analysis</a>
+                <a href="#research">Latest Reports</a>
+                <a href="#methodology">Methodology</a>
+                <a href="#data">Open Data</a>
+                <a href="#publications">Publications</a>
             </div>
             
             <div class="footer-section">
                 <h3>Focus Areas</h3>
-                <a href="#fintech">Financial Technology</a>
-                <a href="#healthtech">Health Technology</a>
-                <a href="#govtech">Government Technology</a>
-                <a href="#edtech">Education Technology</a>
+                <a href="#economic">Economic Empowerment</a>
+                <a href="#social">Social Innovation</a>
+                <a href="#governance">Governance</a>
+                <a href="#infrastructure">Infrastructure</a>
             </div>
             
             <div class="footer-section">
-                <h3>Resources</h3>
-                <a href="#reports">Research Reports</a>
-                <a href="#data">Open Data</a>
-                <a href="#methodology">Methodology</a>
-                <a href="#api">Developer API</a>
+                <h3>About</h3>
+                <a href="#mission">Our Mission</a>
+                <a href="#team">Team</a>
+                <a href="#partners">Partners</a>
+                <a href="#contact">Contact</a>
             </div>
             
             <div class="footer-section">
@@ -877,336 +889,316 @@
                 <a href="#newsletter">Newsletter</a>
                 <a href="#twitter">Twitter</a>
                 <a href="#linkedin">LinkedIn</a>
-                <a href="#contact">Contact Us</a>
+                <a href="#medium">Medium</a>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2024 TechSouth. Empowering the Global South through technology research and analysis.</p>
+            <p>&copy; 2024 TechSouth. All rights reserved. Empowering the Global South through technology research and analysis.</p>
         </div>
     </footer>
 
     <!-- Blog Modal -->
-    <div id="blog-modal" class="blog-modal">
+    <div id="blogModal" class="blog-modal">
         <div class="blog-modal-content">
-            <span class="blog-modal-close">&times;</span>
-            <h2 id="modal-title"></h2>
-            <div id="modal-meta" class="blog-modal-meta"></div>
-            <div id="modal-content"></div>
+            <span class="blog-modal-close" onclick="closeBlogPost()">&times;</span>
+            <div id="blogModalContent">
+                <!-- Blog content will be loaded here -->
+            </div>
         </div>
     </div>
 
     <script>
-        // Global variables
-        let blogPosts = [];
-        let isUsingDynamicContent = false;
-
-        // Fallback static blog posts
-        const staticBlogPosts = [
-            {
-                id: 1,
+        // Blog post data
+        const blogPosts = {
+            'mpesa': {
                 title: "Kenya's M-Pesa: 15 Years of Financial Revolution",
-                excerpt: "Kenya's mobile money platform continues to dominate, processing 20 billion transactions in 2023 alone and serving as a global model for financial inclusion.",
-                content: `
-                    <p>Kenya's M-Pesa has revolutionized financial services across Africa and beyond. Launched in 2007, this mobile money platform has processed over 20 billion transactions in 2023 alone, demonstrating the power of leapfrog technology in emerging markets.</p>
-                    
-                    <p>The platform's success stems from its simplicity and accessibility. Users can send money, pay bills, and access financial services using basic mobile phones, without requiring traditional banking infrastructure. This has been particularly transformative in rural areas where bank branches are scarce.</p>
-                    
-                    <p>M-Pesa's impact extends beyond individual transactions. It has enabled the growth of digital commerce, facilitated government payments, and provided a foundation for other fintech innovations. The platform now serves over 50 million users across multiple African countries.</p>
-                    
-                    <p>The success of M-Pesa has inspired similar platforms worldwide and demonstrated how emerging markets can lead in financial innovation. It remains a cornerstone example of how technology can drive financial inclusion and economic empowerment in the Global South.</p>
-                `,
+                date: "August 15, 2024",
                 category: "Fintech",
-                country: "Kenya",
                 flag: "🇰🇪",
-                icon: "💳",
-                published_at: "2024-08-15",
-                view_count: 2450
+                content: `
+                    <p>Fifteen years after its launch, Kenya's M-Pesa continues to be the world's most successful mobile money platform, fundamentally transforming how millions of people access and use financial services across East Africa and beyond.</p>
+                    
+                    <p>In 2023 alone, M-Pesa processed over 20 billion transactions worth more than $300 billion, serving over 50 million active users across seven countries. What started as a simple money transfer service has evolved into a comprehensive financial ecosystem that includes savings, loans, insurance, and merchant payments.</p>
+                    
+                    <p><strong>The Numbers Tell the Story</strong></p>
+                    <p>M-Pesa's impact on financial inclusion has been profound. In Kenya, mobile money accounts now outnumber traditional bank accounts by more than 3:1. The platform has enabled millions of previously unbanked individuals to participate in the formal financial system for the first time.</p>
+                    
+                    <p>Research by MIT economists found that M-Pesa lifted 194,000 households out of poverty between 2008 and 2014, with particularly strong effects for female-headed households. The platform reduced transaction costs by up to 90% compared to traditional money transfer methods.</p>
+                    
+                    <p><strong>Beyond Payments: A Financial Ecosystem</strong></p>
+                    <p>Today's M-Pesa offers far more than basic money transfers. M-Shwari provides micro-loans and savings accounts, while M-Kopa enables pay-as-you-go solar energy systems. The platform has become the foundation for Kenya's digital economy, enabling everything from taxi payments to utility bills.</p>
+                    
+                    <p>The COVID-19 pandemic accelerated M-Pesa adoption even further, as contactless payments became essential. Transaction volumes increased by 40% during 2020, demonstrating the platform's resilience and continued relevance.</p>
+                    
+                    <p><strong>Global Influence and Replication</strong></p>
+                    <p>M-Pesa's success has inspired mobile money initiatives worldwide. From Bangladesh's bKash to Ghana's MTN Mobile Money, the M-Pesa model has been adapted across the Global South. However, few have achieved the same scale and integration into daily life.</p>
+                    
+                    <p>The key factors behind M-Pesa's success include supportive regulation, extensive agent networks, and continuous innovation. Kenya's central bank took a light-touch regulatory approach that allowed experimentation while ensuring consumer protection.</p>
+                    
+                    <p>As M-Pesa enters its second decade, it continues to evolve with new features like international remittances, cryptocurrency integration, and enhanced merchant services, cementing its position as a cornerstone of Kenya's digital transformation.</p>
+                `
             },
-            {
-                id: 2,
+            'aadhaar': {
                 title: "India's Aadhaar: Digital Identity at Unprecedented Scale",
-                excerpt: "India's biometric identity system has revolutionized government service delivery and enabled millions to access banking and social services for the first time.",
-                content: `
-                    <p>India's Aadhaar system represents the world's largest biometric identity program, covering over 1.3 billion residents. This digital identity infrastructure has fundamentally transformed how citizens access government services and financial products.</p>
-                    
-                    <p>The system uses biometric data (fingerprints and iris scans) along with demographic information to create unique digital identities. This has eliminated duplicate identities and reduced fraud in government programs, saving billions of dollars annually.</p>
-                    
-                    <p>Aadhaar has enabled financial inclusion on an unprecedented scale. Millions of previously unbanked citizens can now open bank accounts instantly using their Aadhaar number. This has facilitated direct benefit transfers, reducing corruption and ensuring subsidies reach intended beneficiaries.</p>
-                    
-                    <p>The platform has also spurred innovation in the fintech sector, enabling instant KYC (Know Your Customer) processes and digital onboarding. Despite privacy concerns, Aadhaar remains a powerful example of how digital identity can transform governance and financial inclusion.</p>
-                `,
+                date: "August 14, 2024",
                 category: "Digital ID",
-                country: "India",
                 flag: "🇮🇳",
-                icon: "🆔",
-                published_at: "2024-08-14",
-                view_count: 1890
+                content: `
+                    <p>India's Aadhaar system represents the world's largest biometric identity program, covering over 1.3 billion residents and fundamentally transforming how citizens access government services and financial products.</p>
+                    
+                    <p>Launched in 2010, Aadhaar assigns each resident a unique 12-digit identification number linked to biometric data including fingerprints and iris scans. This digital identity infrastructure has become the backbone of India's digital transformation, enabling everything from bank account opening to welfare distribution.</p>
+                    
+                    <p><strong>Massive Scale, Remarkable Reach</strong></p>
+                    <p>The numbers are staggering: over 1.34 billion Aadhaar numbers have been generated, covering 95% of India's adult population. The system processes over 2 billion authentication requests monthly, making it one of the world's most heavily used digital identity platforms.</p>
+                    
+                    <p>Aadhaar's reach extends to India's most remote areas, with mobile enrollment units bringing biometric registration to villages without electricity or internet connectivity. This inclusive approach has enabled millions of marginalized citizens to access formal services for the first time.</p>
+                    
+                    <p><strong>Financial Inclusion Revolution</strong></p>
+                    <p>Aadhaar has been instrumental in India's financial inclusion success. The Jan Dhan-Aadhaar-Mobile (JAM) trinity has enabled the opening of over 460 million bank accounts since 2014, with Aadhaar serving as the primary KYC document.</p>
+                    
+                    <p>Digital payments have exploded, with UPI (Unified Payments Interface) transactions reaching 10 billion per month in 2023. Aadhaar-enabled payment systems allow even illiterate users to authenticate transactions using biometrics, democratizing digital finance.</p>
+                    
+                    <p><strong>Transforming Welfare Delivery</strong></p>
+                    <p>Perhaps Aadhaar's most significant impact has been on welfare distribution. The Direct Benefit Transfer (DBT) system uses Aadhaar to deliver subsidies and benefits directly to beneficiaries' bank accounts, eliminating intermediaries and reducing leakage.</p>
+                    
+                    <p>Over $270 billion in benefits have been transferred through DBT, with estimated savings of $24 billion from reduced fraud and improved targeting. Cooking gas subsidies, food distribution, and employment guarantee payments now reach intended beneficiaries more efficiently.</p>
+                    
+                    <p><strong>Privacy Challenges and Evolution</strong></p>
+                    <p>Aadhaar's journey hasn't been without controversy. Privacy advocates have raised concerns about surveillance and data security, leading to Supreme Court interventions and regulatory refinements.</p>
+                    
+                    <p>The 2018 Aadhaar Act amendments strengthened privacy protections while maintaining the system's utility. Consent frameworks, data minimization principles, and purpose limitation have been implemented to address privacy concerns.</p>
+                    
+                    <p><strong>Global Lessons and Replication</strong></p>
+                    <p>Countries worldwide are studying Aadhaar's model for their own digital identity initiatives. From Nigeria's NIN to Bangladesh's Smart NID, the Aadhaar approach is being adapted globally, though few match its scale and integration.</p>
+                    
+                    <p>Key success factors include political commitment, inclusive design, interoperability standards, and continuous innovation. As digital identity becomes crucial for the digital economy, Aadhaar's lessons remain highly relevant for the Global South.</p>
+                `
             },
-            {
-                id: 3,
+            'pix': {
                 title: "Brazil's PIX Revolution: Instant Payment Transformation",
-                excerpt: "Brazil's instant payment system PIX has transformed the financial landscape, enabling real-time transfers and driving fintech innovation across Latin America.",
-                content: `
-                    <p>Brazil's PIX instant payment system has revolutionized the country's financial landscape since its launch in 2020. This central bank-operated platform enables instant, 24/7 money transfers between any bank accounts, fundamentally changing how Brazilians handle money.</p>
-                    
-                    <p>PIX's adoption has been remarkable, with over 140 million users conducting billions of transactions monthly. The system's success lies in its simplicity - users can transfer money using just a phone number, email, or QR code, eliminating the need for complex bank details.</p>
-                    
-                    <p>The platform has significantly reduced the cost of financial transactions and increased financial inclusion. Small businesses, in particular, have benefited from lower transaction fees compared to traditional payment methods, enabling them to participate more fully in the digital economy.</p>
-                    
-                    <p>PIX has also spurred innovation across Latin America, with other countries developing similar instant payment systems. It demonstrates how government-led digital infrastructure can drive financial innovation and inclusion while maintaining security and reliability.</p>
-                `,
+                date: "August 13, 2024",
                 category: "Payments",
-                country: "Brazil",
                 flag: "🇧🇷",
-                icon: "💰",
-                published_at: "2024-08-13",
-                view_count: 1567
+                content: `
+                    <p>Brazil's PIX instant payment system has achieved remarkable success since its 2020 launch, processing over 30 billion transactions in 2023 and fundamentally changing how Brazilians handle money.</p>
+                    
+                    <p>Created by Brazil's Central Bank, PIX enables instant, 24/7 money transfers between any bank accounts using simple identifiers like phone numbers or email addresses. The system has achieved unprecedented adoption rates, with over 140 million users in just three years.</p>
+                    
+                    <p><strong>Rapid Adoption and Usage</strong></p>
+                    <p>PIX's growth has been extraordinary. Within six months of launch, it had processed 1 billion transactions. By 2023, monthly transaction volumes exceeded 3 billion, surpassing traditional payment methods like credit cards and bank transfers.</p>
+                    
+                    <p>The system's success stems from its simplicity and universality. Users can send money instantly using just a phone number, eliminating the need to remember complex bank details. Transactions are free for individuals and cost pennies for businesses.</p>
+                    
+                    <p><strong>Financial Inclusion Impact</strong></p>
+                    <p>PIX has significantly advanced financial inclusion in Brazil. The system works with any bank account, including simplified accounts that require minimal documentation. This has enabled millions of previously unbanked Brazilians to participate in the digital economy.</p>
+                    
+                    <p>Small businesses have particularly benefited. PIX QR codes allow micro-merchants to accept digital payments without expensive card terminals. Street vendors, taxi drivers, and small shop owners can now receive payments instantly and securely.</p>
+                    
+                    <p><strong>Driving Fintech Innovation</strong></p>
+                    <p>PIX has catalyzed Brazil's fintech ecosystem. Digital banks like Nubank and PicPay have integrated PIX as a core feature, while traditional banks have been forced to improve their digital offerings to compete.</p>
+                    
+                    <p>The system's open architecture allows third-party developers to build innovative services on top of PIX infrastructure. From expense splitting apps to automated bill payments, PIX has become the foundation for financial innovation.</p>
+                    
+                    <p><strong>Reducing Cash Dependency</strong></p>
+                    <p>PIX has accelerated Brazil's transition away from cash. Cash usage has declined by over 30% since PIX's introduction, with digital payments becoming the norm even for small transactions.</p>
+                    
+                    <p>This shift has benefits beyond convenience. Reduced cash handling lowers costs for businesses, improves security, and increases transaction transparency for tax authorities. The COVID-19 pandemic accelerated this trend as contactless payments became essential.</p>
+                    
+                    <p><strong>Technical Excellence and Security</strong></p>
+                    <p>PIX's technical infrastructure is world-class. The system processes transactions in under 10 seconds, operates 24/7 with 99.9% uptime, and handles peak loads of over 100,000 transactions per second.</p>
+                    
+                    <p>Security features include end-to-end encryption, fraud detection algorithms, and transaction limits. A comprehensive dispute resolution mechanism protects users while maintaining system efficiency.</p>
+                    
+                    <p><strong>Regional Influence and Future</strong></p>
+                    <p>PIX's success is inspiring similar initiatives across Latin America. Countries like Mexico, Colombia, and Argentina are developing their own instant payment systems, often studying PIX's design and implementation.</p>
+                    
+                    <p>Future developments include international connectivity, allowing PIX users to send money across borders instantly. Integration with Central Bank Digital Currency (CBDC) pilots and enhanced business features will further expand PIX's utility.</p>
+                    
+                    <p>PIX demonstrates how well-designed public digital infrastructure can transform an entire economy's payment landscape, providing lessons for countries worldwide seeking to modernize their financial systems.</p>
+                `
             },
-            {
-                id: 4,
+            'africa-ai': {
                 title: "Africa's AI Innovation Surge",
-                excerpt: "African countries are harnessing AI to address healthcare, agriculture, and governance challenges, positioning the continent as an emerging AI innovation hub.",
-                content: `
-                    <p>Africa is experiencing a remarkable surge in artificial intelligence innovation, with startups and researchers across the continent developing AI solutions tailored to local challenges. This growth is positioning Africa as an emerging global hub for AI innovation.</p>
-                    
-                    <p>In healthcare, AI applications are addressing critical challenges such as disease diagnosis and treatment optimization. Companies like Zipline use AI-powered drones to deliver medical supplies to remote areas, while startups develop AI diagnostic tools for diseases prevalent in African contexts.</p>
-                    
-                    <p>Agriculture, which employs a significant portion of Africa's population, is being transformed through AI applications. Farmers are using AI-powered platforms to optimize crop yields, predict weather patterns, and access market information, improving food security and livelihoods.</p>
-                    
-                    <p>Government services are also benefiting from AI innovation. Countries are implementing AI-powered systems for citizen services, fraud detection, and resource allocation. This technological advancement is helping African nations leapfrog traditional development stages and build more efficient, responsive governance systems.</p>
-                `,
+                date: "August 12, 2024",
                 category: "AI",
-                country: "Africa",
                 flag: "🌍",
-                icon: "🤖",
-                published_at: "2024-08-12",
-                view_count: 2100
+                content: `
+                    <p>Africa is experiencing an unprecedented surge in artificial intelligence innovation, with startups, researchers, and governments across the continent harnessing AI to address uniquely African challenges while building globally competitive solutions.</p>
+                    
+                    <p>From Lagos to Nairobi, Cape Town to Cairo, African AI initiatives are tackling problems ranging from healthcare diagnostics to agricultural optimization, financial inclusion to education access. This homegrown innovation is positioning Africa not just as an AI consumer, but as a significant contributor to global AI development.</p>
+                    
+                    <p><strong>Healthcare AI Leading the Way</strong></p>
+                    <p>African healthcare AI innovations are gaining international recognition. South Africa's Aerobotics uses computer vision to detect crop diseases and pests, while Kenya's Ilara Health develops AI-powered diagnostic devices for rural clinics.</p>
+                    
+                    <p>Nigeria's Ubenwa has created an AI system that analyzes infant cries to detect birth asphyxia, potentially saving thousands of newborn lives. Ghana's minoHealth AI Labs focuses on radiology AI for cancer detection, addressing the continent's shortage of radiologists.</p>
+                    
+                    <p><strong>Agricultural Revolution Through AI</strong></p>
+                    <p>Agriculture, employing 60% of Africa's workforce, is being transformed by AI. Kenyan startup iCow provides AI-powered farming advice via SMS, reaching over 2 million farmers. The platform offers personalized recommendations on crop management, weather patterns, and market prices.</p>
+                    
+                    <p>South African company Aerobotics uses drone imagery and AI to help farmers optimize crop yields and detect problems early. Their technology is now used across multiple continents, demonstrating Africa's potential to export AI solutions globally.</p>
+                    
+                    <p><strong>Financial Services Innovation</strong></p>
+                    <p>African fintech companies are leveraging AI for credit scoring, fraud detection, and financial inclusion. Nigeria's Flutterwave uses machine learning for payment processing and fraud prevention, handling billions in transaction volume.</p>
+                    
+                    <p>South Africa's Jumo employs AI algorithms to assess creditworthiness for previously unbanked populations, using alternative data sources like mobile phone usage patterns. This approach has enabled millions to access credit for the first time.</p>
+                    
+                    <p><strong>Language and Cultural Preservation</strong></p>
+                    <p>African AI researchers are working to ensure AI systems understand and preserve local languages and cultures. The Masakhane project, a grassroots initiative, is developing natural language processing tools for African languages.</p>
+                    
+                    <p>With over 2,000 languages spoken across Africa, this work is crucial for ensuring AI benefits all Africans, not just English speakers. Projects include machine translation, speech recognition, and text-to-speech systems for languages like Yoruba, Swahili, and Amharic.</p>
+                    
+                    <p><strong>Government and Policy Support</strong></p>
+                    <p>African governments are increasingly recognizing AI's potential. Rwanda has established an AI policy framework and is building an AI innovation hub. South Africa has launched a national AI strategy, while Ghana is developing AI governance frameworks.</p>
+                    
+                    <p>The African Union has adopted a continental AI strategy, emphasizing ethical AI development, skills building, and regional cooperation. This coordinated approach aims to position Africa as a global AI leader while ensuring benefits reach all citizens.</p>
+                    
+                    <p><strong>Challenges and Opportunities</strong></p>
+                    <p>Despite progress, challenges remain. Limited internet connectivity, data scarcity, and skills gaps constrain AI development. However, these challenges are spurring innovation in areas like edge computing and low-resource AI models.</p>
+                    
+                    <p>Africa's young, tech-savvy population represents a massive opportunity. With 60% of Africans under 25, the continent has the human capital to drive AI innovation. Universities across Africa are launching AI programs, while coding bootcamps and online platforms are democratizing AI education.</p>
+                    
+                    <p><strong>Global Recognition and Investment</strong></p>
+                    <p>International investors are taking notice. Google has committed $1 billion to African digital transformation, including AI initiatives. Microsoft has established AI development centers in Kenya and Nigeria, while local venture capital funds are increasingly backing AI startups.</p>
+                    
+                    <p>African AI startups raised over $400 million in 2023, with several achieving unicorn status. This investment is fueling further innovation and positioning Africa as a serious player in the global AI ecosystem.</p>
+                    
+                    <p>As Africa continues to leapfrog traditional development stages through technology, AI represents the next frontier for the continent's digital transformation, promising solutions that are both locally relevant and globally impactful.</p>
+                `
             },
-            {
-                id: 5,
+            'rwanda-health': {
                 title: "Rwanda's Digital Health Revolution",
-                excerpt: "Rwanda's comprehensive digital health platform uses AI and data analytics to improve patient outcomes and healthcare accessibility across the country.",
-                content: `
-                    <p>Rwanda has emerged as a leader in digital health innovation, implementing comprehensive digital health systems that serve as a model for other developing nations. The country's approach combines technology with strong governance to improve healthcare outcomes.</p>
-                    
-                    <p>The national health information system integrates data from all healthcare facilities, enabling real-time monitoring of health indicators and resource allocation. This system has been crucial in managing public health challenges and ensuring efficient healthcare delivery.</p>
-                    
-                    <p>AI and machine learning are being deployed to predict disease outbreaks, optimize treatment protocols, and improve diagnostic accuracy. These technologies are particularly valuable in a country where healthcare resources must be used efficiently to serve the entire population.</p>
-                    
-                    <p>Rwanda's digital health initiatives extend beyond technology to include comprehensive training programs for healthcare workers and strong data governance frameworks. This holistic approach has resulted in significant improvements in health outcomes and positions Rwanda as a leader in digital health innovation in Africa.</p>
-                `,
+                date: "August 11, 2024",
                 category: "HealthTech",
-                country: "Rwanda",
                 flag: "🇷🇼",
-                icon: "🏥",
-                published_at: "2024-08-11",
-                view_count: 1234
-            },
-            {
-                id: 6,
-                title: "Nigeria's Fintech Boom: Leapfrogging Traditional Banking",
-                excerpt: "Nigeria's fintech sector is revolutionizing financial services, with digital banks and payment platforms serving millions of previously unbanked citizens.",
                 content: `
-                    <p>Nigeria's fintech sector has experienced explosive growth, with the country now home to some of Africa's most valuable fintech companies. This boom is transforming financial services and driving financial inclusion across West Africa's largest economy.</p>
+                    <p>Rwanda has emerged as a global leader in digital health innovation, leveraging technology to dramatically improve healthcare outcomes and accessibility across the country in just two decades since the 1994 genocide.</p>
                     
-                    <p>Digital banks like Kuda and Opay are providing banking services to millions of previously unbanked Nigerians. These platforms offer features like instant account opening, low-cost transfers, and savings products, all accessible through mobile phones.</p>
+                    <p>The country's comprehensive digital health strategy combines electronic health records, telemedicine, AI-powered diagnostics, and drone delivery systems to create one of the world's most advanced healthcare ecosystems, particularly remarkable for a nation of 13 million people.</p>
                     
-                    <p>Payment platforms such as Paystack and Flutterwave have enabled thousands of businesses to accept digital payments, driving e-commerce growth and formalization of the economy. These platforms process billions of dollars in transactions annually.</p>
+                    <p><strong>Universal Health Coverage Through Technology</strong></p>
+                    <p>Rwanda's community-based health insurance scheme, Mutuelle de Santé, covers over 90% of the population. Digital systems manage enrollment, claims processing, and payment distribution, ensuring efficient and transparent healthcare financing.</p>
                     
-                    <p>The success of Nigerian fintech companies extends beyond national borders, with many expanding across Africa and globally. This growth demonstrates how emerging markets can become leaders in financial innovation, creating solutions that serve both local and international markets.</p>
-                `,
+                    <p>The OpenMRS-based electronic health record system connects all health facilities nationwide, enabling seamless patient data sharing and continuity of care. This interoperability allows a patient treated in a rural clinic to have their records instantly available at a referral hospital in Kigali.</p>
+                    
+                    <p><strong>Telemedicine Bridging Geographic Gaps</strong></p>
+                    <p>Rwanda's telemedicine network connects district hospitals with specialists at referral centers, dramatically improving diagnostic accuracy and treatment decisions in remote areas. The system handles over 10,000 consultations monthly, reducing the need for expensive patient transfers.</p>
+                    
+                    <p>During COVID-19, telemedicine usage increased by 400%, demonstrating the system's scalability and resilience. Remote consultations became routine, with patients accessing specialist care from their homes via mobile phones.</p>
+                    
+                    <p><strong>AI-Powered Diagnostics and Decision Support</strong></p>
+                    <p>Rwanda has pioneered AI applications in healthcare across multiple domains. Babylon Health's AI-powered symptom checker is integrated into the national health system, providing preliminary diagnoses and triage recommendations.</p>
+                    
+                    <p>The country uses AI for radiology interpretation, helping address the shortage of radiologists. Machine learning algorithms analyze X-rays and CT scans, flagging abnormalities for human review and improving diagnostic speed and accuracy.</p>
+                    
+                    <p><strong>Revolutionary Drone Delivery Network</strong></p>
+                    <p>Rwanda's partnership with Zipline has created the world's first national drone delivery network for medical supplies. Since 2016, drones have delivered over 4 million units of blood products, vaccines, and medications to remote health facilities.</p>
+                    
+                    <p>The system reduces delivery times from hours to minutes, particularly crucial for emergency blood deliveries. During COVID-19, drones delivered test samples and vaccines, maintaining healthcare services despite lockdown restrictions.</p>
+                    
+                    <p><strong>Data-Driven Public Health Management</strong></p>
+                    <p>Rwanda's Health Management Information System (HMIS) collects real-time data from all health facilities, enabling evidence-based policy making and rapid response to health emergencies.</p>
+                    
+                    <p>The system tracks disease outbreaks, monitors vaccination coverage, and manages supply chains. During COVID-19, real-time data enabled Rwanda to maintain one of Africa's lowest infection rates through targeted interventions.</p>
+                    
+                    <p><strong>Community Health Worker Digitization</strong></p>
+                    <p>Rwanda's 45,000 community health workers use mobile applications to register patients, conduct health screenings, and report data to the national system. This digitization has improved data quality and enabled better supervision and support.</p>
+                    
+                    <p>The RapidSMS platform allows community health workers to report health events via SMS, ensuring even areas with limited smartphone penetration remain connected to the health system.</p>
+                    
+                    <p><strong>Innovation Ecosystem and Partnerships</strong></p>
+                    <p>Rwanda has cultivated a thriving health innovation ecosystem through partnerships with global technology companies, universities, and development organizations. The country hosts numerous pilot projects that often scale globally.</p>
+                    
+                    <p>The Rwanda Biomedical Centre collaborates with international partners on cutting-edge research, while local startups develop contextually appropriate health solutions. This ecosystem approach ensures continuous innovation and adaptation.</p>
+                    
+                    <p><strong>Measurable Health Outcomes</strong></p>
+                    <p>Rwanda's digital health investments have yielded remarkable results. Maternal mortality has decreased by 80% since 2000, while child mortality has fallen by 70%. Life expectancy has increased from 48 years in 2000 to 69 years in 2023.</p>
+                    
+                    <p>The country has eliminated diseases like polio and neonatal tetanus, while maintaining high vaccination coverage rates. These achievements demonstrate how strategic technology deployment can accelerate health system strengthening.</p>
+                    
+                    <p><strong>Global Influence and Replication</strong></p>
+                    <p>Rwanda's digital health model is being studied and replicated worldwide. The country regularly hosts delegations from other nations seeking to learn from its experience, while Rwandan health officials advise on digital health implementations globally.</p>
+                    
+                    <p>Key success factors include strong political leadership, systematic planning, stakeholder engagement, and continuous learning and adaptation. Rwanda's experience demonstrates that with the right approach, even resource-constrained countries can achieve world-class health outcomes through strategic technology deployment.</p>
+                `
+            },
+            'nigeria-fintech': {
+                title: "Nigeria's Fintech Boom: Leapfrogging Traditional Banking",
+                date: "August 10, 2024",
                 category: "Fintech",
-                country: "Nigeria",
                 flag: "🇳🇬",
-                icon: "🏦",
-                published_at: "2024-08-10",
-                view_count: 1876
-            }
-        ];
-
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', function() {
-            loadBlogPosts();
-            setupEventListeners();
-        });
-
-        // Load blog posts from API or fallback to static
-        async function loadBlogPosts() {
-            try {
-                const response = await fetch('/api/blog/posts');
-                
-                if (response.ok) {
-                    const data = await response.json();
+                content: `
+                    <p>Nigeria's fintech sector has exploded over the past decade, creating a vibrant ecosystem that's revolutionizing financial services across Africa's most populous nation and inspiring innovation throughout the continent.</p>
                     
-                    if (data.posts && data.posts.length > 0) {
-                        blogPosts = data.posts;
-                        isUsingDynamicContent = true;
-                        updateBlogStatus('dynamic', `Showing ${data.posts.length} AI-generated posts`);
-                        updateStats(data);
-                    } else {
-                        // API returned empty results
-                        blogPosts = staticBlogPosts;
-                        isUsingDynamicContent = false;
-                        updateBlogStatus('static', 'Showing curated content (no automated posts yet)');
-                    }
-                } else {
-                    throw new Error('API response not ok');
-                }
-            } catch (error) {
-                console.log('Using fallback content:', error);
-                blogPosts = staticBlogPosts;
-                isUsingDynamicContent = false;
-                updateBlogStatus('static', 'Showing curated content (API unavailable)');
+                    <p>With over 200 million people and a historically underbanked population, Nigeria presented the perfect conditions for fintech disruption. Today, Nigerian fintech companies process billions in transactions, serve millions of customers, and attract significant international investment.</p>
+                    
+                    <p><strong>The Unicorn Success Stories</strong></p>
+                    <p>Nigeria has produced multiple fintech unicorns, companies valued at over $1 billion. Flutterwave, founded in 2016, processes payments for over 1 million businesses across Africa and beyond, handling billions in transaction volume annually.</p>
+                    
+                    <p>Paystack, acquired by Stripe for $200 million in 2020, demonstrated the global potential of Nigerian fintech innovation. Interswitch, one of Africa's first fintech unicorns, continues to power digital payments across the continent.</p>
+                    
+                    <p><strong>Digital Banking Revolution</strong></p>
+                    <p>Digital-only banks are transforming Nigerian banking. Kuda Bank, launched in 2019, has attracted over 5 million customers with its mobile-first approach and zero-fee banking model. The bank processes over $2 billion in transactions monthly.</p>
+                    
+                    <p>VBank, Carbon, and FairMoney offer similar digital banking services, competing on user experience, speed, and cost. These platforms have forced traditional banks to accelerate their digital transformation efforts.</p>
+                    
+                    <p><strong>Financial Inclusion Through Innovation</strong></p>
+                    <p>Nigerian fintechs are addressing the country's financial inclusion challenge head-on. With over 60 million adults previously unbanked, companies like PalmPay and OPay have onboarded millions of new users through agent networks and simplified account opening processes.</p>
+                    
+                    <p>These platforms offer services beyond basic banking, including bill payments, airtime purchases, and merchant payments, creating comprehensive financial ecosystems accessible via smartphones.</p>
+                    
+                    <p><strong>Credit and Lending Innovation</strong></p>
+                    <p>Nigerian fintechs have pioneered innovative credit scoring and lending models. Companies like Carbon, FairMoney, and Branch use alternative data sources including mobile phone usage, social media activity, and transaction history to assess creditworthiness.</p>
+                    
+                    <p>These algorithms enable instant loan approvals for previously credit-invisible populations. Millions of Nigerians have accessed their first formal credit through these platforms, often within minutes of application.</p>
+                    
+                    <p><strong>Cross-Border Payment Solutions</strong></p>
+                    <p>Nigerian fintechs are solving Africa's cross-border payment challenges. Flutterwave's infrastructure enables businesses to accept payments from customers across Africa and globally, while Chipper Cash facilitates peer-to-peer transfers across African countries.</p>
+                    
+                    <p>These solutions are crucial for Africa's economic integration, enabling trade and remittances that were previously expensive and slow through traditional banking channels.</p>
+                    
+                    <p><strong>Regulatory Evolution and Support</strong></p>
+                    <p>The Central Bank of Nigeria has evolved its regulatory approach to support fintech innovation while ensuring consumer protection. The introduction of Payment Service Bank licenses has enabled fintechs to offer banking services legally.</p>
+                    
+                    <p>The regulatory sandbox allows companies to test innovative products in a controlled environment, while open banking initiatives are fostering competition and innovation in the financial sector.</p>
+                    
+                    <p><strong>Investment and Global Recognition</strong></p>
+                    <p>Nigerian fintechs have attracted over $2 billion in investment since 2019, with international investors recognizing the sector's potential. Companies like Flutterwave, Paystack, and Interswitch have achieved global recognition and expansion.</p>
+                    
+                    <p>This investment is fueling further innovation and expansion, with Nigerian fintechs increasingly looking beyond domestic markets to serve the broader African continent.</p>
+                    
+                    <p><strong>Challenges and Future Outlook</strong></p>
+                    <p>Despite success, challenges remain. Infrastructure limitations, regulatory uncertainty, and cybersecurity concerns pose ongoing risks. However, the sector's resilience and adaptability have been demonstrated repeatedly.</p>
+                    
+                    <p>The future looks bright, with emerging areas like blockchain, cryptocurrency, and embedded finance offering new opportunities. Nigeria's young, tech-savvy population and growing smartphone penetration provide a solid foundation for continued growth.</p>
+                    
+                    <p><strong>Continental Leadership</strong></p>
+                    <p>Nigeria's fintech success is inspiring and enabling innovation across Africa. Nigerian companies are expanding to other African markets, while the country's talent and expertise are being exported continent-wide.</p>
+                    
+                    <p>As Africa's largest economy continues its digital transformation, Nigeria's fintech sector stands as a testament to the power of innovation, entrepreneurship, and supportive ecosystems in driving financial inclusion and economic growth.</p>
+                `
             }
-            
-            renderBlogPosts();
-        }
+        };
 
-        // Update blog status indicator
-        function updateBlogStatus(type, message) {
-            const statusElement = document.getElementById('blog-status');
-            statusElement.textContent = message;
-            statusElement.className = `blog-status ${type}`;
-        }
-
-        // Update stats based on API data
-        function updateStats(data) {
-            if (data.total) {
-                document.getElementById('reports-stat').textContent = `${data.total}+`;
-            }
-        }
-
-        // Render blog posts
-        function renderBlogPosts() {
-            const loadingElement = document.getElementById('blog-loading');
-            const gridElement = document.getElementById('blog-grid');
-            const emptyElement = document.getElementById('blog-empty');
-            
-            loadingElement.style.display = 'none';
-            
-            if (blogPosts.length === 0) {
-                emptyElement.style.display = 'block';
-                return;
-            }
-            
-            gridElement.style.display = 'grid';
-            gridElement.innerHTML = '';
-            
-            blogPosts.forEach(post => {
-                const blogCard = createBlogCard(post);
-                gridElement.appendChild(blogCard);
-            });
-        }
-
-        // Create blog card element
-        function createBlogCard(post) {
-            const card = document.createElement('div');
-            card.className = 'blog-card';
-            card.onclick = () => openBlogModal(post);
-            
-            // Format date
-            const date = new Date(post.published_at || post.created_at).toLocaleDateString();
-            
-            // Get category and country info
-            const category = post.technology?.name || post.category || 'Technology';
-            const country = post.country?.name || post.country || 'Global South';
-            const flag = post.country?.flag_url || post.flag || '🌍';
-            const icon = getCategoryIcon(category);
-            
-            card.innerHTML = `
-                <div class="blog-image">
-                    <div class="blog-category">${category}</div>
-                    <div class="blog-flag">${flag}</div>
-                    <div>${icon}</div>
-                </div>
-                <div class="blog-content">
-                    <h3 class="blog-title">${post.title}</h3>
-                    <p class="blog-excerpt">${post.excerpt || post.content?.substring(0, 150) + '...' || 'Click to read more...'}</p>
-                    <div class="blog-meta">
-                        <span>${date}</span>
-                        <span>${post.view_count || 0} views</span>
-                    </div>
-                </div>
-            `;
-            
-            return card;
-        }
-
-        // Get category icon
-        function getCategoryIcon(category) {
-            const icons = {
-                'Fintech': '💳',
-                'HealthTech': '🏥',
-                'AI': '🤖',
-                'Digital ID': '🆔',
-                'Payments': '💰',
-                'GovTech': '🏛️',
-                'EdTech': '📚',
-                'AgTech': '🌾'
-            };
-            return icons[category] || '🚀';
-        }
-
-        // Open blog modal
-        function openBlogModal(post) {
-            const modal = document.getElementById('blog-modal');
-            const title = document.getElementById('modal-title');
-            const meta = document.getElementById('modal-meta');
-            const content = document.getElementById('modal-content');
-            
-            title.textContent = post.title;
-            
-            const date = new Date(post.published_at || post.created_at).toLocaleDateString();
-            const category = post.technology?.name || post.category || 'Technology';
-            const country = post.country?.name || post.country || 'Global South';
-            
-            meta.innerHTML = `
-                <strong>${category}</strong> • ${country} • ${date} • ${post.view_count || 0} views
-            `;
-            
-            // Format content
-            let formattedContent = post.content || 'Content not available.';
-            if (typeof formattedContent === 'string' && !formattedContent.includes('<p>')) {
-                // Convert plain text to paragraphs
-                formattedContent = formattedContent.split('\n\n').map(p => `<p>${p}</p>`).join('');
-            }
-            
-            content.innerHTML = formattedContent;
-            
-            modal.style.display = 'block';
-        }
-
-        // Setup event listeners
-        function setupEventListeners() {
-            // Close modal
-            document.querySelector('.blog-modal-close').onclick = function() {
-                document.getElementById('blog-modal').style.display = 'none';
-            };
-            
-            // Close modal when clicking outside
-            window.onclick = function(event) {
-                const modal = document.getElementById('blog-modal');
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
-            };
-            
-            // Newsletter form
-            document.getElementById('newsletter-form').addEventListener('submit', handleNewsletterSubmit);
-        }
-
-        // Handle newsletter submission
-        async function handleNewsletterSubmit(e) {
+        // Newsletter form handling
+        document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            const email = document.getElementById('newsletter-email').value;
-            const successElement = document.getElementById('newsletter-success');
-            const errorElement = document.getElementById('newsletter-error');
+            const email = document.getElementById('emailInput').value;
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
             
             // Hide previous messages
-            successElement.style.display = 'none';
-            errorElement.style.display = 'none';
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                errorMessage.textContent = 'Please enter a valid email address.';
+                errorMessage.style.display = 'block';
+                return;
+            }
             
             try {
                 const response = await fetch('/api/newsletter/subscribe', {
@@ -1217,23 +1209,75 @@
                     body: JSON.stringify({ email: email })
                 });
                 
+                const data = await response.json();
+                
                 if (response.ok) {
-                    successElement.style.display = 'block';
-                    document.getElementById('newsletter-email').value = '';
+                    successMessage.textContent = data.message || 'Successfully subscribed to TechSouth Weekly!';
+                    successMessage.style.display = 'block';
+                    document.getElementById('emailInput').value = '';
                 } else {
-                    throw new Error('Subscription failed');
+                    errorMessage.textContent = data.error || 'Something went wrong. Please try again.';
+                    errorMessage.style.display = 'block';
                 }
             } catch (error) {
-                errorElement.style.display = 'block';
+                errorMessage.textContent = 'Network error. Please check your connection and try again.';
+                errorMessage.style.display = 'block';
+            }
+        });
+
+        // Blog post functions
+        function openBlogPost(postId) {
+            const post = blogPosts[postId];
+            if (!post) return;
+            
+            const modal = document.getElementById('blogModal');
+            const content = document.getElementById('blogModalContent');
+            
+            content.innerHTML = `
+                <h2>${post.title}</h2>
+                <div class="blog-modal-meta">
+                    <span>${post.flag} ${post.category}</span> • <span>${post.date}</span>
+                </div>
+                ${post.content}
+            `;
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBlogPost() {
+            const modal = document.getElementById('blogModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('blogModal');
+            if (event.target === modal) {
+                closeBlogPost();
             }
         }
 
-        // Smooth scroll to newsletter
+        // Smooth scrolling for navigation links
         function scrollToNewsletter() {
             document.getElementById('newsletter').scrollIntoView({ 
                 behavior: 'smooth' 
             });
         }
+
+        // Smooth scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
