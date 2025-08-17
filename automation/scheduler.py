@@ -28,7 +28,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('/home/ubuntu/tech_blog_backend/automation.log'),
+        logging.FileHandler('/tmp/automation.log'),
         logging.StreamHandler()
     ]
 )
