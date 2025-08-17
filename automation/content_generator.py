@@ -16,8 +16,8 @@ import openai
 # Add the parent directory to the path to import models
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-from src.models.blog import BlogPost, Country, Technology, MediaAsset, AutomationConfig
-from src.models.user import db
+from models.blog import BlogPost, Country, Technology, MediaAsset, AutomationConfig
+from models.user import db
 
 class ContentGenerator:
     """Main class for automated content generation"""
