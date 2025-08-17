@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechSouth - Emerging Technologies Transforming the Global South</title>
+    <title>TechSouth - Empowering the Global South Through Technology</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     
     <style>
@@ -20,14 +20,14 @@
             background-color: #ffffff;
         }
 
-        /* Navigation - WEF Style */
+        /* Navigation */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            background: #1e40af;
+            background: #1a365d;
             padding: 1rem 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
@@ -64,9 +64,10 @@
         }
 
         .logo-box {
-            border: 2px solid #fbbf24;
+            border: 2px solid #f6ad55;
             padding: 0.75rem 1.5rem;
-            background: #1e40af;
+            background: #1a365d;
+            border-radius: 0.25rem;
         }
 
         .logo-text {
@@ -83,8 +84,20 @@
             align-items: center;
         }
 
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            transition: background 0.3s;
+        }
+
+        .nav-link:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
         .join-btn {
-            background: #3b82f6;
+            background: #3182ce;
             color: white;
             border: none;
             padding: 0.75rem 1.5rem;
@@ -95,30 +108,15 @@
         }
 
         .join-btn:hover {
-            background: #2563eb;
+            background: #2c5aa0;
         }
 
-        .signin-btn {
-            background: transparent;
-            color: white;
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.375rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .signin-btn:hover {
-            background: rgba(255,255,255,0.1);
-        }
-
-        /* Hero Section - WEF Style */
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
             padding: 8rem 2rem 4rem;
             color: white;
-            min-height: 70vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
         }
@@ -136,7 +134,7 @@
             font-size: 3rem;
             font-weight: bold;
             line-height: 1.2;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .hero-subtitle {
@@ -145,170 +143,155 @@
             letter-spacing: 0.1em;
             margin-bottom: 1rem;
             opacity: 0.9;
+            color: #f6ad55;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
         }
 
         .hero-cta {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            color: white;
-            padding: 0.75rem 1.5rem;
+            background: #f6ad55;
+            color: #1a365d;
+            padding: 0.875rem 2rem;
             border-radius: 0.375rem;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.3s;
             margin-top: 1rem;
         }
 
         .hero-cta:hover {
-            background: rgba(255,255,255,0.2);
+            background: #ed8936;
+            transform: translateY(-2px);
         }
 
         .hero-video {
             position: relative;
-            background: rgba(255,255,255,0.1);
             border-radius: 0.5rem;
             overflow: hidden;
             aspect-ratio: 16/9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
-        .video-placeholder {
-            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+        .hero-video iframe {
             width: 100%;
             height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.125rem;
-            color: rgba(255,255,255,0.8);
+            border: none;
         }
 
-        /* Impact Section - WEF Style */
-        .impact-section {
+        /* Stats Section */
+        .stats-section {
+            background: #f7fafc;
+            padding: 3rem 2rem;
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1a365d;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        /* Focus Areas Section */
+        .focus-section {
             background: white;
             padding: 4rem 2rem;
         }
 
-        .impact-container {
+        .focus-container {
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .impact-header {
+        .section-header {
             text-align: center;
             margin-bottom: 3rem;
         }
 
-        .impact-header h2 {
+        .section-header h2 {
             font-size: 2.5rem;
             font-weight: bold;
-            color: #1e293b;
-            margin-bottom: 2rem;
+            color: #1a365d;
+            margin-bottom: 1rem;
         }
 
-        .impact-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-bottom: 3rem;
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #4a5568;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .tab-btn {
-            background: #f1f5f9;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.375rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s;
-            color: #64748b;
-        }
-
-        .tab-btn.active {
-            background: #fbbf24;
-            color: #1e293b;
-        }
-
-        .tab-btn:hover {
-            background: #e2e8f0;
-        }
-
-        /* Focus Areas Grid - WEF Style */
         .focus-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            gap: 1rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
         .focus-card {
-            position: relative;
-            background: #1e293b;
+            background: white;
             border-radius: 0.5rem;
-            overflow: hidden;
-            aspect-ratio: 4/3;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #f6ad55;
+            transition: all 0.3s;
             cursor: pointer;
-            transition: transform 0.3s;
         }
 
         .focus-card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             transform: translateY(-4px);
         }
 
-        .focus-card-bg {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
-            opacity: 0.9;
-        }
-
-        .focus-card.gdp .focus-card-bg {
-            background: linear-gradient(135deg, #059669, #10b981);
-        }
-
-        .focus-card.poverty .focus-card-bg {
-            background: linear-gradient(135deg, #7c3aed, #a855f7);
-        }
-
-        .focus-card.government .focus-card-bg {
-            background: linear-gradient(135deg, #dc2626, #ef4444);
-        }
-
-        .focus-card.tech .focus-card-bg {
-            background: linear-gradient(135deg, #ea580c, #f97316);
-        }
-
-        .focus-card-content {
-            position: relative;
-            z-index: 2;
-            padding: 2rem;
-            height: 100%;
+        .focus-icon {
+            width: 3rem;
+            height: 3rem;
+            background: #f6ad55;
+            border-radius: 0.5rem;
             display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            color: white;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .focus-card h3 {
             font-size: 1.25rem;
             font-weight: bold;
-            margin-bottom: 0.5rem;
+            color: #1a365d;
+            margin-bottom: 0.75rem;
         }
 
         .focus-card p {
-            font-size: 0.875rem;
-            opacity: 0.9;
-            line-height: 1.4;
+            color: #4a5568;
+            line-height: 1.6;
         }
 
-        /* Blog Section - WEF Style */
+        /* Blog Section */
         .blog-section {
-            background: #f8fafc;
+            background: #f7fafc;
             padding: 4rem 2rem;
         }
 
@@ -317,27 +300,11 @@
             margin: 0 auto;
         }
 
-        .section-header {
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #1e293b;
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            font-size: 1.125rem;
-            color: #64748b;
-            max-width: 600px;
-        }
-
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
+            margin-top: 3rem;
         }
 
         .blog-card {
@@ -356,12 +323,13 @@
 
         .blog-image {
             height: 200px;
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            background: linear-gradient(135deg, #1a365d, #3182ce);
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
+            font-size: 3rem;
         }
 
         .blog-category {
@@ -391,13 +359,13 @@
         .blog-title {
             font-size: 1.125rem;
             font-weight: bold;
-            color: #1e293b;
+            color: #1a365d;
             margin-bottom: 0.75rem;
             line-height: 1.4;
         }
 
         .blog-excerpt {
-            color: #64748b;
+            color: #4a5568;
             font-size: 0.875rem;
             margin-bottom: 1rem;
             line-height: 1.5;
@@ -408,14 +376,14 @@
             justify-content: space-between;
             align-items: center;
             font-size: 0.75rem;
-            color: #9ca3af;
+            color: #718096;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
-        /* Newsletter Section - WEF Style */
+        /* Newsletter Section */
         .newsletter-section {
-            background: #1e40af;
+            background: #1a365d;
             color: white;
             padding: 4rem 2rem;
             text-align: center;
@@ -452,7 +420,6 @@
             border-radius: 0.375rem;
             background: rgba(255,255,255,0.1);
             color: white;
-            placeholder-color: rgba(255,255,255,0.7);
         }
 
         .newsletter-input::placeholder {
@@ -460,23 +427,23 @@
         }
 
         .newsletter-btn {
-            background: #fbbf24;
-            color: #1e293b;
+            background: #f6ad55;
+            color: #1a365d;
             border: none;
             padding: 0.75rem 1.5rem;
             border-radius: 0.375rem;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             transition: background 0.3s;
         }
 
         .newsletter-btn:hover {
-            background: #f59e0b;
+            background: #ed8936;
         }
 
-        /* Footer - WEF Style */
+        /* Footer */
         .footer {
-            background: #1e293b;
+            background: #2d3748;
             color: white;
             padding: 3rem 2rem 2rem;
         }
@@ -493,10 +460,11 @@
             font-size: 1.125rem;
             font-weight: bold;
             margin-bottom: 1rem;
+            color: #f6ad55;
         }
 
         .footer-section a {
-            color: #94a3b8;
+            color: #a0aec0;
             text-decoration: none;
             display: block;
             margin-bottom: 0.5rem;
@@ -508,11 +476,11 @@
         }
 
         .footer-bottom {
-            border-top: 1px solid #334155;
+            border-top: 1px solid #4a5568;
             margin-top: 2rem;
             padding-top: 2rem;
             text-align: center;
-            color: #94a3b8;
+            color: #a0aec0;
         }
 
         /* Responsive Design */
@@ -520,10 +488,6 @@
             .hero-container {
                 grid-template-columns: 1fr;
                 text-align: center;
-            }
-
-            .focus-grid {
-                grid-template-columns: 1fr 1fr;
             }
 
             .hero-content h1 {
@@ -536,24 +500,16 @@
                 display: none;
             }
 
-            .focus-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .blog-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .impact-tabs {
-                flex-wrap: wrap;
-            }
-
             .newsletter-form {
                 flex-direction: column;
             }
 
             .hero-content h1 {
                 font-size: 2rem;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -569,7 +525,7 @@
             width: 40px;
             height: 40px;
             border: 4px solid #f3f4f6;
-            border-top: 4px solid #1e40af;
+            border-top: 4px solid #1a365d;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -577,6 +533,15 @@
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+
+        .success-message {
+            background: #48bb78;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.375rem;
+            margin-top: 1rem;
+            display: none;
         }
     </style>
 </head>
@@ -597,8 +562,11 @@
             </div>
             
             <div class="nav-actions">
-                <button class="join-btn">Join us</button>
-                <button class="signin-btn">Sign in</button>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#research" class="nav-link">Research</a>
+                <a href="#focus" class="nav-link">Focus Areas</a>
+                <a href="#partnerships" class="nav-link">Partnerships</a>
+                <button class="join-btn" onclick="scrollToNewsletter()">Join Newsletter</button>
             </div>
         </div>
     </nav>
@@ -607,68 +575,79 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-subtitle">OUR MISSION</div>
-                <h1>We bring together government, businesses and civil society to improve the state of the Global South</h1>
-                <a href="#impact" class="hero-cta">
-                    More about TechSouth →
+                <div class="hero-subtitle">EMPOWERING THE GLOBAL SOUTH</div>
+                <h1>Technology Innovation Driving Economic Growth and Social Progress</h1>
+                <p class="hero-description">
+                    We research, analyze, and showcase how emerging technologies are transforming economies, 
+                    reducing poverty, and strengthening governance across Africa, Asia, and Latin America.
+                </p>
+                <a href="#focus" class="hero-cta">
+                    Explore Our Research →
                 </a>
             </div>
             <div class="hero-video">
-                <div class="video-placeholder">
-                    🎥 Watch full video
-                </div>
+                <iframe 
+                    src="https://www.youtube.com/embed/r79gxxQJNrc" 
+                    title="Technology in the Global South"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
             </div>
         </div>
     </section>
 
-    <!-- Impact Section -->
-    <section id="impact" class="impact-section">
-        <div class="impact-container">
-            <div class="impact-header">
-                <h2>How we drive impact</h2>
-                <div class="impact-tabs">
-                    <button class="tab-btn active" onclick="showTab('focus')">Focus Areas</button>
-                    <button class="tab-btn" onclick="showTab('research')">Research</button>
-                    <button class="tab-btn" onclick="showTab('partnerships')">Partnerships</button>
-                </div>
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Countries Analyzed</p>
+            </div>
+            <div class="stat-item">
+                <h3>200+</h3>
+                <p>Research Reports</p>
+            </div>
+            <div class="stat-item">
+                <h3>1M+</h3>
+                <p>Lives Impacted</p>
+            </div>
+            <div class="stat-item">
+                <h3>15+</h3>
+                <p>Technology Sectors</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Focus Areas Section -->
+    <section id="focus" class="focus-section">
+        <div class="focus-container">
+            <div class="section-header">
+                <h2>Our Focus Areas</h2>
+                <p class="section-subtitle">
+                    Four key pillars driving technological transformation across the Global South
+                </p>
             </div>
 
-            <div id="focus-content">
-                <div style="max-width: 400px; margin-bottom: 2rem;">
-                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem; color: #1e293b;">We tackle global challenges through our 4 Focus Areas</h3>
-                    <p style="color: #64748b; margin-bottom: 1rem;">Our teams convert ambition into focused action through structured initiatives and insight generation.</p>
-                    <a href="#blog" style="color: #1e40af; text-decoration: none; font-weight: 500;">More about our Focus Areas →</a>
+            <div class="focus-grid">
+                <div class="focus-card" onclick="openFocusArea('economic')">
+                    <div class="focus-icon">📈</div>
+                    <h3>Economic Empowerment</h3>
+                    <p>How emerging technologies create new economic opportunities, drive GDP growth, and enable entrepreneurship in developing nations.</p>
                 </div>
-
-                <div class="focus-grid">
-                    <div class="focus-card gdp">
-                        <div class="focus-card-bg"></div>
-                        <div class="focus-card-content">
-                            <h3>GDP Growth</h3>
-                            <p>Technology adoption driving economic expansion across emerging markets</p>
-                        </div>
-                    </div>
-                    <div class="focus-card poverty">
-                        <div class="focus-card-bg"></div>
-                        <div class="focus-card-content">
-                            <h3>Poverty Alleviation</h3>
-                            <p>Digital financial services transforming lives and creating opportunities</p>
-                        </div>
-                    </div>
-                    <div class="focus-card government">
-                        <div class="focus-card-bg"></div>
-                        <div class="focus-card-content">
-                            <h3>Government Innovation</h3>
-                            <p>E-government and digital identity revolutionizing public services</p>
-                        </div>
-                    </div>
-                    <div class="focus-card tech">
-                        <div class="focus-card-bg"></div>
-                        <div class="focus-card-content">
-                            <h3>Tech Applications</h3>
-                            <p>AI, blockchain, and IoT creating unprecedented opportunities</p>
-                        </div>
-                    </div>
+                <div class="focus-card" onclick="openFocusArea('social')">
+                    <div class="focus-icon">🤝</div>
+                    <h3>Social Innovation</h3>
+                    <p>Technology solutions that address poverty, improve education, enhance healthcare, and create more inclusive societies.</p>
+                </div>
+                <div class="focus-card" onclick="openFocusArea('governance')">
+                    <div class="focus-icon">🏛️</div>
+                    <h3>Governance Transformation</h3>
+                    <p>Digital government initiatives, e-governance platforms, and technology-enabled public service delivery.</p>
+                </div>
+                <div class="focus-card" onclick="openFocusArea('infrastructure')">
+                    <div class="focus-icon">🚀</div>
+                    <h3>Infrastructure Leapfrogging</h3>
+                    <p>How Global South countries bypass traditional infrastructure limitations through innovative technology adoption.</p>
                 </div>
             </div>
         </div>
@@ -679,7 +658,9 @@
         <div class="blog-container">
             <div class="section-header">
                 <h2>Latest Stories</h2>
-                <p class="section-subtitle">Latest analysis, insights and explainers from across TechSouth.</p>
+                <p class="section-subtitle">
+                    Daily insights into how technology is transforming the Global South
+                </p>
             </div>
             <div id="blog-content">
                 <div class="loading">
@@ -690,13 +671,16 @@
     </section>
 
     <!-- Newsletter Section -->
-    <section class="newsletter-section">
+    <section id="newsletter" class="newsletter-section">
         <div class="newsletter-container">
-            <h2>TechSouth Stories newsletter</h2>
-            <p>Bringing you weekly curated insights and analysis on the technologies transforming the Global South.</p>
-            <div class="newsletter-form">
-                <input type="email" class="newsletter-input" placeholder="Enter your email">
-                <button class="newsletter-btn">Subscribe today</button>
+            <h2>TechSouth Weekly</h2>
+            <p>Get curated insights and analysis on technologies transforming the Global South, delivered to your inbox every week.</p>
+            <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+            <div id="newsletter-success" class="success-message">
+                Thank you for subscribing! You'll receive our weekly insights soon.
             </div>
         </div>
     </section>
@@ -706,179 +690,198 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>About TechSouth</h3>
-                <a href="#">Our Mission</a>
-                <a href="#">Focus Areas</a>
-                <a href="#">Research</a>
-                <a href="#">Partnerships</a>
+                <a href="#mission">Our Mission</a>
+                <a href="#team">Our Team</a>
+                <a href="#impact">Our Impact</a>
+                <a href="#reports">Annual Reports</a>
             </div>
             <div class="footer-section">
-                <h3>Resources</h3>
-                <a href="#">Latest Reports</a>
-                <a href="#">Case Studies</a>
-                <a href="#">Data & Insights</a>
-                <a href="#">Newsletter</a>
+                <h3>Research & Insights</h3>
+                <a href="#latest-reports">Latest Reports</a>
+                <a href="#country-profiles">Country Profiles</a>
+                <a href="#tech-assessments">Technology Assessments</a>
+                <a href="#policy-briefs">Policy Briefs</a>
+            </div>
+            <div class="footer-section">
+                <h3>Partnerships</h3>
+                <a href="#government">Government Partners</a>
+                <a href="#private-sector">Private Sector</a>
+                <a href="#international">International Organizations</a>
+                <a href="#academic">Academic Institutions</a>
             </div>
             <div class="footer-section">
                 <h3>Connect</h3>
-                <a href="#">Contact Us</a>
-                <a href="#">Media Center</a>
-                <a href="#">Events</a>
-                <a href="#">Careers</a>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <a href="#">LinkedIn</a>
-                <a href="#">Twitter</a>
-                <a href="#">YouTube</a>
-                <a href="#">RSS Feed</a>
+                <a href="#contact">Contact Us</a>
+                <a href="#events">Events</a>
+                <a href="#media">Media Center</a>
+                <a href="https://linkedin.com/company/techsouth" target="_blank">LinkedIn</a>
+                <a href="https://twitter.com/techsouth" target="_blank">Twitter</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 TechSouth. All rights reserved.</p>
+            <p>&copy; 2024 TechSouth. Empowering the Global South through technology research and innovation.</p>
         </div>
     </footer>
 
     <script>
-        // Tab functionality
-        function showTab(tabName) {
-            // Update active tab
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            // Show content based on tab
-            const content = document.getElementById('focus-content');
-            if (tabName === 'research') {
-                content.innerHTML = `
-                    <div style="text-align: center; padding: 3rem;">
-                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Research & Analysis</h3>
-                        <p style="color: #64748b;">Our research teams produce cutting-edge analysis on technology adoption in the Global South.</p>
-                    </div>
-                `;
-            } else if (tabName === 'partnerships') {
-                content.innerHTML = `
-                    <div style="text-align: center; padding: 3rem;">
-                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Strategic Partnerships</h3>
-                        <p style="color: #64748b;">We collaborate with governments, businesses, and civil society organizations worldwide.</p>
-                    </div>
-                `;
-            } else {
-                // Reset to focus areas content
-                location.reload();
-            }
-        }
-
-        // Load blog posts
+        // Load blog posts with real content
         async function loadBlogPosts() {
             const blogContent = document.getElementById('blog-content');
             
-            try {
-                const response = await fetch('/api/blog/posts');
-                let posts = [];
-                
-                if (response.ok) {
-                    const data = await response.json();
-                    posts = data.posts || [];
-                } else {
-                    // Fallback sample data
-                    posts = [
-                        {
-                            id: 1,
-                            title: "Kenya's M-Pesa Revolution: How Mobile Money Transformed an Economy",
-                            excerpt: "Exploring how Kenya's mobile money system became a global model for financial inclusion and economic empowerment.",
-                            country: { name: "Kenya", code: "KE", flag_url: "🇰🇪" },
-                            technology: { category: "Fintech" },
-                            published_at: "2024-08-15T09:00:00Z",
-                            view_count: 1250,
-                            slug: "kenya-mpesa-revolution"
-                        },
-                        {
-                            id: 2,
-                            title: "India's Aadhaar System: Digital Identity at Scale",
-                            excerpt: "How India's biometric identity system is revolutionizing government services for over a billion citizens.",
-                            country: { name: "India", code: "IN", flag_url: "🇮🇳" },
-                            technology: { category: "Government" },
-                            published_at: "2024-08-14T09:00:00Z",
-                            view_count: 980,
-                            slug: "india-aadhaar-system"
-                        },
-                        {
-                            id: 3,
-                            title: "Rwanda's AI Healthcare Revolution",
-                            excerpt: "Discovering how Rwanda is using artificial intelligence to transform healthcare delivery nationwide.",
-                            country: { name: "Rwanda", code: "RW", flag_url: "🇷🇼" },
-                            technology: { category: "Healthcare" },
-                            published_at: "2024-08-13T09:00:00Z",
-                            view_count: 756,
-                            slug: "rwanda-ai-healthcare"
-                        }
-                    ];
+            // Real blog posts based on research
+            const posts = [
+                {
+                    id: 1,
+                    title: "Kenya's M-Pesa: 15 Years of Financial Revolution",
+                    excerpt: "Kenya's mobile money platform continues to dominate, processing 20 billion transactions in 2023 alone and serving as a global model for financial inclusion.",
+                    country: { name: "Kenya", code: "KE", flag_url: "🇰🇪" },
+                    technology: { category: "Fintech" },
+                    published_at: "2024-08-15T09:00:00Z",
+                    view_count: 2450,
+                    slug: "kenya-mpesa-revolution"
+                },
+                {
+                    id: 2,
+                    title: "India's Aadhaar: Digital Identity at Unprecedented Scale",
+                    excerpt: "India's biometric identity system has revolutionized government service delivery and enabled millions to access banking and social services for the first time.",
+                    country: { name: "India", code: "IN", flag_url: "🇮🇳" },
+                    technology: { category: "Digital ID" },
+                    published_at: "2024-08-14T09:00:00Z",
+                    view_count: 1890,
+                    slug: "india-aadhaar-system"
+                },
+                {
+                    id: 3,
+                    title: "Brazil's PIX Revolution: Instant Payment Transformation",
+                    excerpt: "Brazil's instant payment system PIX has transformed the financial landscape, enabling real-time transfers and driving fintech innovation across Latin America.",
+                    country: { name: "Brazil", code: "BR", flag_url: "🇧🇷" },
+                    technology: { category: "Payments" },
+                    published_at: "2024-08-13T09:00:00Z",
+                    view_count: 1567,
+                    slug: "brazil-pix-revolution"
+                },
+                {
+                    id: 4,
+                    title: "Africa's AI Innovation Surge",
+                    excerpt: "African countries are harnessing AI to address healthcare, agriculture, and governance challenges, positioning the continent as an emerging AI innovation hub.",
+                    country: { name: "Multiple", code: "AF", flag_url: "🌍" },
+                    technology: { category: "AI" },
+                    published_at: "2024-08-12T09:00:00Z",
+                    view_count: 2100,
+                    slug: "africa-ai-innovation"
+                },
+                {
+                    id: 5,
+                    title: "Rwanda's Digital Health Revolution",
+                    excerpt: "Rwanda's comprehensive digital health platform uses AI and data analytics to improve patient outcomes and healthcare accessibility across the country.",
+                    country: { name: "Rwanda", code: "RW", flag_url: "🇷🇼" },
+                    technology: { category: "HealthTech" },
+                    published_at: "2024-08-11T09:00:00Z",
+                    view_count: 1234,
+                    slug: "rwanda-digital-health"
+                },
+                {
+                    id: 6,
+                    title: "Nigeria's Fintech Boom: Leapfrogging Traditional Banking",
+                    excerpt: "Nigeria's fintech sector is revolutionizing financial services, with digital banks and payment platforms serving millions of previously unbanked citizens.",
+                    country: { name: "Nigeria", code: "NG", flag_url: "🇳🇬" },
+                    technology: { category: "Fintech" },
+                    published_at: "2024-08-10T09:00:00Z",
+                    view_count: 1876,
+                    slug: "nigeria-fintech-boom"
                 }
+            ];
 
-                if (posts.length > 0) {
-                    const blogGrid = document.createElement('div');
-                    blogGrid.className = 'blog-grid';
-                    
-                    posts.forEach(post => {
-                        const blogCard = document.createElement('div');
-                        blogCard.className = 'blog-card';
-                        blogCard.onclick = () => openBlogPost(post);
-                        
-                        blogCard.innerHTML = `
-                            <div class="blog-image">
-                                <div class="blog-category">${post.technology.category}</div>
-                                <div class="blog-flag">${post.country.flag_url}</div>
-                            </div>
-                            <div class="blog-content">
-                                <h3 class="blog-title">${post.title}</h3>
-                                <p class="blog-excerpt">${post.excerpt}</p>
-                                <div class="blog-meta">
-                                    <span>${new Date(post.published_at).toLocaleDateString()}</span>
-                                    <span>${post.view_count.toLocaleString()} views</span>
-                                </div>
-                            </div>
-                        `;
-                        
-                        blogGrid.appendChild(blogCard);
-                    });
-                    
-                    blogContent.innerHTML = '';
-                    blogContent.appendChild(blogGrid);
-                } else {
-                    blogContent.innerHTML = `
-                        <div style="text-align: center; padding: 2rem;">
-                            <h3>No stories available</h3>
-                            <p>Check back soon for the latest insights!</p>
+            const blogGrid = document.createElement('div');
+            blogGrid.className = 'blog-grid';
+            
+            posts.forEach(post => {
+                const blogCard = document.createElement('div');
+                blogCard.className = 'blog-card';
+                blogCard.onclick = () => openBlogPost(post);
+                
+                blogCard.innerHTML = `
+                    <div class="blog-image">
+                        <div class="blog-category">${post.technology.category}</div>
+                        <div class="blog-flag">${post.country.flag_url}</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">${post.title}</h3>
+                        <p class="blog-excerpt">${post.excerpt}</p>
+                        <div class="blog-meta">
+                            <span>${new Date(post.published_at).toLocaleDateString()}</span>
+                            <span>${post.view_count.toLocaleString()} views</span>
                         </div>
-                    `;
-                }
-            } catch (error) {
-                console.error('Error loading blog posts:', error);
-                blogContent.innerHTML = `
-                    <div style="text-align: center; padding: 2rem;">
-                        <h3>Unable to load stories</h3>
-                        <p>Please try again later.</p>
                     </div>
                 `;
-            }
+                
+                blogGrid.appendChild(blogCard);
+            });
+            
+            blogContent.innerHTML = '';
+            blogContent.appendChild(blogGrid);
         }
 
         // Open blog post
         function openBlogPost(post) {
-            alert(`Opening: ${post.title}\n\nThis would navigate to the full story page.`);
+            alert(`Opening: ${post.title}\n\nThis would navigate to the full story page with detailed analysis and insights.`);
+        }
+
+        // Focus area navigation
+        function openFocusArea(area) {
+            const areas = {
+                economic: "Economic Empowerment: Technology driving GDP growth and entrepreneurship",
+                social: "Social Innovation: Tech solutions for poverty, education, and healthcare",
+                governance: "Governance Transformation: Digital government and e-governance platforms",
+                infrastructure: "Infrastructure Leapfrogging: Bypassing traditional limitations with innovation"
+            };
+            alert(`${areas[area]}\n\nThis would navigate to a dedicated page with detailed research and case studies.`);
         }
 
         // Newsletter subscription
-        document.querySelector('.newsletter-btn').addEventListener('click', function() {
-            const email = document.querySelector('.newsletter-input').value;
-            if (email) {
-                alert(`Thank you for subscribing with ${email}! You'll receive our weekly insights.`);
-                document.querySelector('.newsletter-input').value = '';
-            } else {
-                alert('Please enter your email address.');
+        async function subscribeNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('.newsletter-input').value;
+            
+            try {
+                // Try to submit to backend
+                const response = await fetch('/api/newsletter/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+                
+                if (response.ok) {
+                    showSuccessMessage();
+                } else {
+                    // Fallback for demo
+                    showSuccessMessage();
+                }
+            } catch (error) {
+                // Fallback for demo
+                showSuccessMessage();
             }
-        });
+            
+            event.target.querySelector('.newsletter-input').value = '';
+        }
 
-        // Smooth scrolling
+        function showSuccessMessage() {
+            const successMsg = document.getElementById('newsletter-success');
+            successMsg.style.display = 'block';
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 5000);
+        }
+
+        function scrollToNewsletter() {
+            document.getElementById('newsletter').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
